@@ -1,17 +1,26 @@
-# Compiled class file
-*.class
+# === Carpetas de Compilación Maven ===
+target/
+**/target/
 
-# Log file
+# === IDEs (IntelliJ IDEA y VS Code) ===
+.idea/
+*.iml
+*.ipr
+*.iws
+.vscode/
+
+# === Archivos del Sistema Operativo ===
+.DS_Store
+Thumbs.db
+
+# === Logs y temporales ===
 *.log
-
-# BlueJ files
 *.ctxt
-
-# Mobile Tools for Java (J2ME)
 .mtj.tmp/
+hs_err_pid*
+replay_pid*
 
-# Package Files #
-*.jar
+# === Archivos empaquetados ===
 *.war
 *.nar
 *.ear
@@ -19,6 +28,12 @@
 *.tar.gz
 *.rar
 
-# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
-hs_err_pid*
-replay_pid*
+# Ignorar todos los jar EXCEPTO el wrapper de Maven
+*.jar
+!**/maven-wrapper.jar
+
+# === Futuro Frontend (Node / Expo) ===
+node_modules/
+.expo/
+dist/
+web-build/
