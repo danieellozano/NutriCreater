@@ -35,3 +35,10 @@ jobs:
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
         with:
           args: --file=backend/pom.xml --severity-threshold=high
+      # 5. Escaneo de Ciberseguridad del Frontend Móvil (npm)
+      - name: Run Snyk on Mobile
+        uses: snyk/actions/node@master
+        env:
+          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+        with:
+          args: --file=mobile/package.json --severity-threshold=high
