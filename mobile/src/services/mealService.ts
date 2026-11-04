@@ -1,4 +1,4 @@
-import {API_BASE_URL} from './client';
+import {API_BASE_URL, getAuthHeaders} from './client';
 import {MealRequest, MealResponse} from '../types/';
 
 const BASE_URL = `${API_BASE_URL}/meals`;
@@ -7,10 +7,11 @@ export const mealService = {
     // Fetch meals from the backend
     async getAll(search?: string): Promise<MealResponse[]> {
         const url = search
-            ? `${BASE_URL}/meals?search=${encodeURIComponent(search)}`
+            ? `${BASE_URL}?search=${encodeURIComponent(search)}`
             : BASE_URL;
 
-        const response = await fetch(url);
+        const headers = await getAuthHeaders(); // Assuming you have a function to get auth headers
+        const response = await fetch(url, { headers });
         if (!response.ok) {
             throw new Error(`Error fetching meals: ${response.status}`);
         }
@@ -19,7 +20,8 @@ export const mealService = {
 
     // Fetch a single meal by ID
     async getById(id: number): Promise<MealResponse> {
-        const response = await fetch(`${BASE_URL}/${id}`);
+        const headers = await getAuthHeaders();
+        const response = await fetch(`${BASE_URL}/${id}`, { headers });
         if (!response.ok) {
             throw new Error(`Error fetching meal: ${response.status}`);
         }
@@ -28,9 +30,11 @@ export const mealService = {
 
     // Create a new meal
     async create(meal: MealRequest): Promise<MealResponse> {
+        const headers = await getAuthHeaders();
         const response = await fetch(BASE_URL, {
             method: 'POST',
             headers: {
+                ...headers,
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify(meal)
@@ -43,11 +47,10 @@ export const mealService = {
 
     // Update an existing meal
     async update(id: number, meal: MealRequest): Promise<MealResponse> {
+        const headers = await getAuthHeaders();
         const response = await fetch(`${BASE_URL}/${id}`, {
             method: 'PUT',
-            headers: {
-                'Content-Type': 'application/json'
-            },
+            headers,
             body: JSON.stringify(meal)
         });
         if (!response.ok) {
@@ -58,8 +61,10 @@ export const mealService = {
 
     // Delete a meal by ID
     async delete(id: number): Promise<void> {
+        const headers = await getAuthHeaders();
         const response = await fetch(`${BASE_URL}/${id}`, {
-            method: 'DELETE'
+            method: 'DELETE',
+            headers,
         });
         if (!response.ok) {
             throw new Error(`Error deleting meal: ${response.status}`);

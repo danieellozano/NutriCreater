@@ -1,5 +1,5 @@
 import {Food} from '../types/';
-import {API_BASE_URL} from './client';
+import {API_BASE_URL, getAuthHeaders } from './client';
 
 const BASE_URL = `${API_BASE_URL}/foods`;
 
@@ -12,7 +12,8 @@ export const foodService = {
 
         console.log('>>> EL MOVIL ESTA LLAMANDO A:', url);
 
-        const response = await fetch(url);
+        const headers = await getAuthHeaders(); // Assuming you have a function to get auth headers
+        const response = await fetch(url, { headers });
         if (!response.ok) {
             throw new Error(`Error fetching foods: ${response.status}`);
         }
@@ -21,7 +22,8 @@ export const foodService = {
 
     // Fetch a single food by ID
     async getById(id: number): Promise<Food> {
-        const response = await fetch(`${BASE_URL}/${id}`);
+        const headers = await getAuthHeaders();
+        const response = await fetch(`${BASE_URL}/${id}`, { headers });
         if (!response.ok) {
             throw new Error(`Error fetching food: ${response.status}`);
         }
@@ -30,11 +32,10 @@ export const foodService = {
 
     // Create a new food
     async create(food: Omit<Food, 'id'>): Promise<Food> {
+        const headers = await getAuthHeaders();
         const response = await fetch(BASE_URL, {
             method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
+            headers,
             body: JSON.stringify(food)
         });
         if (!response.ok) {
@@ -45,9 +46,11 @@ export const foodService = {
 
     // Update an existing food
     async update(id: number, food: Omit<Food, 'id'>): Promise<Food> {
+        const headers = await getAuthHeaders();
         const response = await fetch(`${BASE_URL}/${id}`, {
             method: 'PUT',
             headers: {
+                ...headers,
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify(food)
@@ -60,8 +63,10 @@ export const foodService = {
 
     // Delete a food by ID
     async delete(id: number): Promise<void> {
+        const headers = await getAuthHeaders();
         const response = await fetch(`${BASE_URL}/${id}`, {
-            method: 'DELETE'
+            method: 'DELETE',
+            headers,
         });
         if (!response.ok) {
             throw new Error(`Error deleting food: ${response.status}`);
