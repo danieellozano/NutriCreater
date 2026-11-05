@@ -7,6 +7,7 @@ import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
+import java.security.Principal;
 import java.util.List;
 
 @RestController
@@ -18,31 +19,31 @@ public class MealController {
     public MealController(MealService service) { this.service = service;}
 
     @GetMapping
-    public List<MealResponse> getMeals(@RequestParam(required = false) String search){
+    public List<MealResponse> getMeals(@RequestParam(required = false) String search, Principal principal){
         if (search != null && !search.isBlank()){
-            return service.getMealsByName(search);
+            return service.getMealsByName(principal.getName(), search);
         }
-        return service.getAllMeals();
+        return service.getAllMeals(principal.getName());
     }
 
     @GetMapping("/{id}")
-    public MealResponse getMealById(@PathVariable Long id){ return service.getMealById(id);}
+    public MealResponse getMealById(@PathVariable Long id, Principal principal){ return service.getMealById(id, principal.getName());}
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public MealResponse createMeal(@Valid @RequestBody MealRequest request) {
-        return service.createMeal(request);
+    public MealResponse createMeal(@Valid @RequestBody MealRequest request, Principal principal) {
+        return service.createMeal(request, principal.getName());
     }
 
     @PutMapping("/{id}")
-    public MealResponse updateMeal(@PathVariable Long id, @Valid @RequestBody MealRequest request) {
-        return service.updateMeal(id, request);
+    public MealResponse updateMeal(@PathVariable Long id, @Valid @RequestBody MealRequest request, Principal principal) {
+        return service.updateMeal(id, request, principal.getName());
     }
 
     @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void deleteMeal(@PathVariable Long id) {
-        service.deleteMeal(id);
+    public void deleteMeal(@PathVariable Long id, Principal principal) {
+        service.deleteMeal(id, principal.getName());
     }
 
 }

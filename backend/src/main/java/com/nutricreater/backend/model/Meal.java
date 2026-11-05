@@ -10,6 +10,10 @@ import java.util.List;
 @Table(name = "meals")
 public class Meal {
 
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name =  "user_id", nullable = false)
+    private User user;
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -33,6 +37,8 @@ public class Meal {
         this.items.add(item);
     }
 
+    public User getUser() { return user; }
+
     public Long getId() {
         return id;
     }
@@ -44,6 +50,8 @@ public class Meal {
     public List<MealItem> getItems() {
         return items;
     }
+
+    public void setUser(User user) { this.user = user; }
 
     public void setId(Long id) {
         this.id = id;
