@@ -6,7 +6,9 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.Collection;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table(name = "users")
@@ -28,6 +30,14 @@ public class User implements UserDetails {
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
     private Role role;
+
+    @ManyToMany(fetch = FetchType.LAZY)
+    @JoinTable(
+            name = "user_food_catalog",
+            joinColumns = @JoinColumn(name = "user_id"),
+            inverseJoinColumns = @JoinColumn(name = "food_id")
+    )
+    private Set<Food> foods = new HashSet<>();
 
     public User() {}
 
@@ -88,6 +98,15 @@ public class User implements UserDetails {
     public Role getRole() { return role; }
     public void setRole(Role role) { this.role = role; }
 
+    public Set<Food> getFoods() {
+        return foods;
+    }
 
+    public void setFoods(Set<Food> foods) {
+        this.foods = foods;
+    }
 
+    public void addFood(Food food) {
+        this.foods.add(food);
+    }
 }

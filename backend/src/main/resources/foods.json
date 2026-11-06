@@ -1,0 +1,2765 @@
+[
+  {
+    "name": "Callos de ternera",
+    "calories": 94.7,
+    "protein": 14.6,
+    "carbohydrates": 0,
+    "fat": 4,
+    "fiber": 0,
+    "salt": 0.12
+  },
+  {
+    "name": "Cerdo, pierna, con grasa separable",
+    "calories": 211.6,
+    "protein": 19,
+    "carbohydrates": 0,
+    "fat": 15.2,
+    "fiber": 0,
+    "salt": 0.2
+  },
+  {
+    "name": "Queso de arzúa",
+    "calories": 395.3,
+    "protein": 22.2,
+    "carbohydrates": 2,
+    "fat": 34.5,
+    "fiber": 0,
+    "salt": 10.51
+  },
+  {
+    "name": "Boniato",
+    "calories": 101,
+    "protein": 1.2,
+    "carbohydrates": 23,
+    "fat": 0.3,
+    "fiber": 2.9,
+    "salt": 0.05
+  },
+  {
+    "name": "Berro",
+    "calories": 11.9,
+    "protein": 2.2,
+    "carbohydrates": 0.3,
+    "fat": 0.2,
+    "fiber": 2.6,
+    "salt": 0.15
+  },
+  {
+    "name": "Achicoria",
+    "calories": 18.7,
+    "protein": 0.5,
+    "carbohydrates": 2.8,
+    "fat": 0.6,
+    "fiber": 0.9,
+    "salt": 0
+  },
+  {
+    "name": "Anguila",
+    "calories": 218.4,
+    "protein": 20,
+    "carbohydrates": 0,
+    "fat": 15.5,
+    "fiber": 0,
+    "salt": 0.22
+  },
+  {
+    "name": "Aceite de algodón",
+    "calories": 884.3,
+    "protein": 0,
+    "carbohydrates": 0,
+    "fat": 100,
+    "fiber": 0,
+    "salt": 0
+  },
+  {
+    "name": "Aceite de cacahuete",
+    "calories": 883.4,
+    "protein": 0,
+    "carbohydrates": 0,
+    "fat": 99.9,
+    "fiber": 0,
+    "salt": 0
+  },
+  {
+    "name": "Aceite de coco",
+    "calories": 884.3,
+    "protein": 0,
+    "carbohydrates": 0,
+    "fat": 100,
+    "fiber": 0,
+    "salt": 0
+  },
+  {
+    "name": "Aceite de germen de trigo",
+    "calories": 883.4,
+    "protein": 0,
+    "carbohydrates": 0,
+    "fat": 99.9,
+    "fiber": 0,
+    "salt": 0
+  },
+  {
+    "name": "Aceite de palma",
+    "calories": 884.3,
+    "protein": 0,
+    "carbohydrates": 0,
+    "fat": 100,
+    "fiber": 0,
+    "salt": 0
+  },
+  {
+    "name": "Aceite de sésamo",
+    "calories": 884.3,
+    "protein": 0,
+    "carbohydrates": 0,
+    "fat": 100,
+    "fiber": 0,
+    "salt": 0
+  },
+  {
+    "name": "Aceite de colza",
+    "calories": 884.3,
+    "protein": 0,
+    "carbohydrates": 0,
+    "fat": 100,
+    "fiber": 0,
+    "salt": 0
+  },
+  {
+    "name": "Aceite de grano de uva",
+    "calories": 883.4,
+    "protein": 0,
+    "carbohydrates": 0,
+    "fat": 99.9,
+    "fiber": 0,
+    "salt": 0
+  },
+  {
+    "name": "Aceite de hígado de bacalao",
+    "calories": 883.4,
+    "protein": 0,
+    "carbohydrates": 0,
+    "fat": 99.9,
+    "fiber": 0,
+    "salt": 0
+  },
+  {
+    "name": "Chile rojo",
+    "calories": 33.6,
+    "protein": 1,
+    "carbohydrates": 6.4,
+    "fat": 0.4,
+    "fiber": 1.9,
+    "salt": 0.03
+  },
+  {
+    "name": "Chile verde",
+    "calories": 16.5,
+    "protein": 0.8,
+    "carbohydrates": 2.6,
+    "fat": 0.3,
+    "fiber": 1.9,
+    "salt": 0.02
+  },
+  {
+    "name": "Breca",
+    "calories": 75.5,
+    "protein": 15.4,
+    "carbohydrates": 1,
+    "fat": 1.6,
+    "fiber": 0,
+    "salt": 0.35
+  },
+  {
+    "name": "Cabracho",
+    "calories": 92.1,
+    "protein": 19,
+    "carbohydrates": 0,
+    "fat": 1.7,
+    "fiber": 0,
+    "salt": 0.15
+  },
+  {
+    "name": "Calamar",
+    "calories": 71.5,
+    "protein": 14,
+    "carbohydrates": 1.1,
+    "fat": 1.5,
+    "fiber": 0,
+    "salt": 0.34
+  },
+  {
+    "name": "Carpa",
+    "calories": 115.9,
+    "protein": 17.8,
+    "carbohydrates": 0,
+    "fat": 5,
+    "fiber": 0,
+    "salt": 0.11
+  },
+  {
+    "name": "Dorada",
+    "calories": 77.9,
+    "protein": 17,
+    "carbohydrates": 0,
+    "fat": 7.2,
+    "fiber": 0,
+    "salt": 0.18
+  },
+  {
+    "name": "Gamba roja",
+    "calories": 89.2,
+    "protein": 18,
+    "carbohydrates": 0,
+    "fat": 1.8,
+    "fiber": 0,
+    "salt": 0.76
+  },
+  {
+    "name": "Jurel",
+    "calories": 111.8,
+    "protein": 15.4,
+    "carbohydrates": 0.8,
+    "fat": 2,
+    "fiber": 0,
+    "salt": 0.1
+  },
+  {
+    "name": "Lija",
+    "calories": 135,
+    "protein": 18,
+    "carbohydrates": 0,
+    "fat": 7,
+    "fiber": 0,
+    "salt": 0.3
+  },
+  {
+    "name": "Mero",
+    "calories": 87.7,
+    "protein": 19.4,
+    "carbohydrates": 0,
+    "fat": 1.2,
+    "fiber": 0,
+    "salt": 0.2
+  },
+  {
+    "name": "Mújol",
+    "calories": 127.6,
+    "protein": 15.8,
+    "carbohydrates": 0.8,
+    "fat": 6.8,
+    "fiber": 0,
+    "salt": 0.2
+  },
+  {
+    "name": "Ostra",
+    "calories": 63.9,
+    "protein": 8.1,
+    "carbohydrates": 2.8,
+    "fat": 2.2,
+    "fiber": 0,
+    "salt": 0.99
+  },
+  {
+    "name": "Perca",
+    "calories": 89.7,
+    "protein": 18.6,
+    "carbohydrates": 0,
+    "fat": 1.6,
+    "fiber": 0,
+    "salt": 0.12
+  },
+  {
+    "name": "Pez espada",
+    "calories": 110.3,
+    "protein": 18,
+    "carbohydrates": 0,
+    "fat": 4.2,
+    "fiber": 0,
+    "salt": 0.29
+  },
+  {
+    "name": "Platija",
+    "calories": 82.4,
+    "protein": 17.6,
+    "carbohydrates": 0,
+    "fat": 1.2,
+    "fiber": 0,
+    "salt": 0.23
+  },
+  {
+    "name": "Salema",
+    "calories": 103.2,
+    "protein": 12.7,
+    "carbohydrates": 7.9,
+    "fat": 0.9,
+    "fiber": 0,
+    "salt": 0.44
+  },
+  {
+    "name": "Tenca",
+    "calories": 91.9,
+    "protein": 17.7,
+    "carbohydrates": 3.3,
+    "fat": 4.3,
+    "fiber": 0,
+    "salt": 0.2
+  },
+  {
+    "name": "Vieja",
+    "calories": 83.2,
+    "protein": 12.1,
+    "carbohydrates": 4.9,
+    "fat": 1.6,
+    "fiber": 0,
+    "salt": 0.51
+  },
+  {
+    "name": "Pez Volador",
+    "calories": 88,
+    "protein": 21,
+    "carbohydrates": 0,
+    "fat": 0.3,
+    "fiber": 0,
+    "salt": 0.2
+  },
+  {
+    "name": "Cebollino",
+    "calories": 24.6,
+    "protein": 3,
+    "carbohydrates": 1.9,
+    "fat": 0.5,
+    "fiber": 2.3,
+    "salt": 0.01
+  },
+  {
+    "name": "Col rizada",
+    "calories": 33.7,
+    "protein": 3.4,
+    "carbohydrates": 1.4,
+    "fat": 1.6,
+    "fiber": 3.3,
+    "salt": 0.01
+  },
+  {
+    "name": "Menta",
+    "calories": 43.4,
+    "protein": 3.8,
+    "carbohydrates": 5.3,
+    "fat": 0.7,
+    "fiber": 6.8,
+    "salt": 0.04
+  },
+  {
+    "name": "Nabo",
+    "calories": 18.4,
+    "protein": 0.9,
+    "carbohydrates": 3.2,
+    "fat": 0.2,
+    "fiber": 2,
+    "salt": 0.14
+  },
+  {
+    "name": "Níscalo",
+    "calories": 14,
+    "protein": 1.9,
+    "carbohydrates": 0.1,
+    "fat": 0.7,
+    "fiber": 6.9,
+    "salt": 0.01
+  },
+  {
+    "name": "Almidón de arroz",
+    "calories": 348.5,
+    "protein": 0.8,
+    "carbohydrates": 85,
+    "fat": 0,
+    "fiber": 0,
+    "salt": 0.15
+  },
+  {
+    "name": "Trufa",
+    "calories": 93.8,
+    "protein": 9,
+    "carbohydrates": 13,
+    "fat": 0.5,
+    "fiber": 16.5,
+    "salt": 0.19
+  },
+  {
+    "name": "Almidón de trigo",
+    "calories": 352.7,
+    "protein": 0.4,
+    "carbohydrates": 86.1,
+    "fat": 0,
+    "fiber": 0,
+    "salt": 0.01
+  },
+  {
+    "name": "Almendra",
+    "calories": 586.2,
+    "protein": 19.1,
+    "carbohydrates": 6.2,
+    "fat": 45.2,
+    "fiber": 8.3,
+    "salt": 0.03
+  },
+  {
+    "name": "Arroz integral",
+    "calories": 384.1,
+    "protein": 7.5,
+    "carbohydrates": 81.3,
+    "fat": 2.6,
+    "fiber": 3,
+    "salt": 0.01
+  },
+  {
+    "name": "Coco",
+    "calories": 371.4,
+    "protein": 3.3,
+    "carbohydrates": 15.2,
+    "fat": 33.5,
+    "fiber": 9,
+    "salt": 0.04
+  },
+  {
+    "name": "Leche de coco",
+    "calories": 207.9,
+    "protein": 2,
+    "carbohydrates": 2.8,
+    "fat": 21.3,
+    "fiber": 0,
+    "salt": 0.03
+  },
+  {
+    "name": "Frambuesa",
+    "calories": 38,
+    "protein": 1.2,
+    "carbohydrates": 7,
+    "fat": 0.5,
+    "fiber": 6.7,
+    "salt": 0.01
+  },
+  {
+    "name": "Leche desnatada",
+    "calories": 33.9,
+    "protein": 3.3,
+    "carbohydrates": 4.6,
+    "fat": 0.2,
+    "fiber": 0,
+    "salt": 0.11
+  },
+  {
+    "name": "Leche semidesnatada",
+    "calories": 45.8,
+    "protein": 3.2,
+    "carbohydrates": 4.6,
+    "fat": 1.6,
+    "fiber": 0,
+    "salt": 0.12
+  },
+  {
+    "name": "Anacardo",
+    "calories": 574.3,
+    "protein": 17.5,
+    "carbohydrates": 32,
+    "fat": 43.1,
+    "fiber": 1.4,
+    "salt": 0.04
+  },
+  {
+    "name": "Queso de cabra fresco",
+    "calories": 296.6,
+    "protein": 19.8,
+    "carbohydrates": 1.1,
+    "fat": 23.9,
+    "fiber": 0,
+    "salt": 1.2
+  },
+  {
+    "name": "Guayaba",
+    "calories": 57,
+    "protein": 0.8,
+    "carbohydrates": 11.9,
+    "fat": 0.6,
+    "fiber": 5.4,
+    "salt": 0.01
+  },
+  {
+    "name": "Níspero",
+    "calories": 52.6,
+    "protein": 0.4,
+    "carbohydrates": 12.1,
+    "fat": 0.2,
+    "fiber": 1.7,
+    "salt": 0
+  },
+  {
+    "name": "Corazón de cordero",
+    "calories": 118.3,
+    "protein": 16.5,
+    "carbohydrates": 0.2,
+    "fat": 5.7,
+    "fiber": 0,
+    "salt": 0.22
+  },
+  {
+    "name": "Corazón de pollo",
+    "calories": 148.5,
+    "protein": 15.6,
+    "carbohydrates": 0.7,
+    "fat": 9.3,
+    "fiber": 0,
+    "salt": 0.28
+  },
+  {
+    "name": "Chufa",
+    "calories": 407.7,
+    "protein": 6.1,
+    "carbohydrates": 42.5,
+    "fat": 23.7,
+    "fiber": 17.4,
+    "salt": 0.09
+  },
+  {
+    "name": "Solomillo de vaca/buey",
+    "calories": 135.3,
+    "protein": 23.5,
+    "carbohydrates": 0,
+    "fat": 4.5,
+    "fiber": 0,
+    "salt": 0.22
+  },
+  {
+    "name": "Lengua de buey",
+    "calories": 217.9,
+    "protein": 14.9,
+    "carbohydrates": 3.7,
+    "fat": 16.1,
+    "fiber": 0,
+    "salt": 0.17
+  },
+  {
+    "name": "Lengua de ternera",
+    "calories": 135.1,
+    "protein": 17.8,
+    "carbohydrates": 0,
+    "fat": 7.1,
+    "fiber": 0,
+    "salt": 0.2
+  },
+  {
+    "name": "Lomo de ternera",
+    "calories": 111.3,
+    "protein": 20.2,
+    "carbohydrates": 0,
+    "fat": 3.3,
+    "fiber": 0,
+    "salt": 0.15
+  },
+  {
+    "name": "Pechuga de pollo",
+    "calories": 104.5,
+    "protein": 23.1,
+    "carbohydrates": 0,
+    "fat": 1.2,
+    "fiber": 0,
+    "salt": 0.16
+  },
+  {
+    "name": "Grosella",
+    "calories": 26.6,
+    "protein": 1.1,
+    "carbohydrates": 5,
+    "fat": 0.2,
+    "fiber": 8.2,
+    "salt": 0.01
+  },
+  {
+    "name": "Leche de cabra",
+    "calories": 64.4,
+    "protein": 3.4,
+    "carbohydrates": 4.4,
+    "fat": 3.7,
+    "fiber": 0,
+    "salt": 0.11
+  },
+  {
+    "name": "Lima",
+    "calories": 8.3,
+    "protein": 0.6,
+    "carbohydrates": 1,
+    "fat": 0.2,
+    "fiber": 2.8,
+    "salt": 0.01
+  },
+  {
+    "name": "Leche de oveja",
+    "calories": 99.2,
+    "protein": 5.6,
+    "carbohydrates": 5,
+    "fat": 6.3,
+    "fiber": 0,
+    "salt": 0.1
+  },
+  {
+    "name": "Litchi",
+    "calories": 66.9,
+    "protein": 0.9,
+    "carbohydrates": 14.6,
+    "fat": 0.4,
+    "fiber": 1.3,
+    "salt": 0
+  },
+  {
+    "name": "Queso Cheddar",
+    "calories": 403.2,
+    "protein": 26,
+    "carbohydrates": 0.1,
+    "fat": 33.6,
+    "fiber": 0,
+    "salt": 1.75
+  },
+  {
+    "name": "Membrillo",
+    "calories": 28.8,
+    "protein": 0.3,
+    "carbohydrates": 6.3,
+    "fat": 0.2,
+    "fiber": 6.4,
+    "salt": 0.01
+  },
+  {
+    "name": "Avena",
+    "calories": 399.1,
+    "protein": 16.9,
+    "carbohydrates": 66.3,
+    "fat": 6.9,
+    "fiber": 10.6,
+    "salt": 0.01
+  },
+  {
+    "name": "Queso Gruyer",
+    "calories": 373.4,
+    "protein": 23.4,
+    "carbohydrates": 0.4,
+    "fat": 31.3,
+    "fiber": 0,
+    "salt": 1.07
+  },
+  {
+    "name": "Almidón de maíz",
+    "calories": 372.5,
+    "protein": 0.3,
+    "carbohydrates": 91.3,
+    "fat": 0,
+    "fiber": 0.9,
+    "salt": 0.02
+  },
+  {
+    "name": "Cebada",
+    "calories": 321.7,
+    "protein": 10.6,
+    "carbohydrates": 64,
+    "fat": 2.1,
+    "fiber": 14.8,
+    "salt": 0.01
+  },
+  {
+    "name": "Uva negra",
+    "calories": 71.6,
+    "protein": 0.6,
+    "carbohydrates": 15.5,
+    "fat": 0.7,
+    "fiber": 0.4,
+    "salt": 0.01
+  },
+  {
+    "name": "Garbanzo seco",
+    "calories": 334.2,
+    "protein": 19.3,
+    "carbohydrates": 49.2,
+    "fat": 6.3,
+    "fiber": 15,
+    "salt": 0.07
+  },
+  {
+    "name": "Solomillo de cerdo",
+    "calories": 130.4,
+    "protein": 21,
+    "carbohydrates": 0,
+    "fat": 5.1,
+    "fiber": 0,
+    "salt": 0.13
+  },
+  {
+    "name": "Corazon de vaca",
+    "calories": 104,
+    "protein": 17,
+    "carbohydrates": 0,
+    "fat": 4,
+    "fiber": 0,
+    "salt": 0.23
+  },
+  {
+    "name": "Solomillo de ternera",
+    "calories": 109.1,
+    "protein": 20.2,
+    "carbohydrates": 0,
+    "fat": 3.1,
+    "fiber": 0,
+    "salt": 0.23
+  },
+  {
+    "name": "Costilla de ternera",
+    "calories": 139.7,
+    "protein": 20,
+    "carbohydrates": 0,
+    "fat": 6.6,
+    "fiber": 0,
+    "salt": 0.23
+  },
+  {
+    "name": "Sesos de ternera",
+    "calories": 118.3,
+    "protein": 10.4,
+    "carbohydrates": 0,
+    "fat": 8.6,
+    "fiber": 0,
+    "salt": 0.32
+  },
+  {
+    "name": "Hígado de vaca/buey",
+    "calories": 135.5,
+    "protein": 21.1,
+    "carbohydrates": 3.5,
+    "fat": 4,
+    "fiber": 0,
+    "salt": 0.24
+  },
+  {
+    "name": "Harina de avena",
+    "calories": 352,
+    "protein": 15,
+    "carbohydrates": 57.7,
+    "fat": 6.4,
+    "fiber": 10,
+    "salt": 0.02
+  },
+  {
+    "name": "Harina de cebada",
+    "calories": 359.5,
+    "protein": 10.5,
+    "carbohydrates": 74.5,
+    "fat": 1.6,
+    "fiber": 10.1,
+    "salt": 0.01
+  },
+  {
+    "name": "Muslo de pavo",
+    "calories": 150.7,
+    "protein": 18.9,
+    "carbohydrates": 0,
+    "fat": 8.4,
+    "fiber": 0,
+    "salt": 0.18
+  },
+  {
+    "name": "Riñon de cordero",
+    "calories": 94.8,
+    "protein": 16.8,
+    "carbohydrates": 0,
+    "fat": 3,
+    "fiber": 0,
+    "salt": 0.45
+  },
+  {
+    "name": "Pan de barra",
+    "calories": 261.7,
+    "protein": 8,
+    "carbohydrates": 53.9,
+    "fat": 1.1,
+    "fiber": 3.5,
+    "salt": 0.01
+  },
+  {
+    "name": "Lenteja seca",
+    "calories": 308.9,
+    "protein": 24.8,
+    "carbohydrates": 48.7,
+    "fat": 1.2,
+    "fiber": 9.7,
+    "salt": 0.57
+  },
+  {
+    "name": "Baguette de pan",
+    "calories": 269.8,
+    "protein": 8,
+    "carbohydrates": 55.9,
+    "fat": 1.1,
+    "fiber": 3.5,
+    "salt": 1.63
+  },
+  {
+    "name": "Pan de avena",
+    "calories": 270.1,
+    "protein": 8.4,
+    "carbohydrates": 48.5,
+    "fat": 4.4,
+    "fiber": 4,
+    "salt": 0.06
+  },
+  {
+    "name": "Riñón de ternera",
+    "calories": 106.5,
+    "protein": 16.8,
+    "carbohydrates": 0,
+    "fat": 4.3,
+    "fiber": 0,
+    "salt": 0.46
+  },
+  {
+    "name": "Pan de cebada",
+    "calories": 197.8,
+    "protein": 6.4,
+    "carbohydrates": 39.9,
+    "fat": 1.1,
+    "fiber": 4.6,
+    "salt": 0
+  },
+  {
+    "name": "Pan de maíz",
+    "calories": 313.1,
+    "protein": 7.2,
+    "carbohydrates": 48.1,
+    "fat": 10,
+    "fiber": 2.4,
+    "salt": 1.95
+  },
+  {
+    "name": "Sesos de cerdo",
+    "calories": 122.7,
+    "protein": 10.6,
+    "carbohydrates": 0,
+    "fat": 9,
+    "fiber": 0,
+    "salt": 0.38
+  },
+  {
+    "name": "Sesos de cordero",
+    "calories": 135.3,
+    "protein": 10,
+    "carbohydrates": 0,
+    "fat": 10.7,
+    "fiber": 0,
+    "salt": 0.31
+  },
+  {
+    "name": "Quinoa",
+    "calories": 305.1,
+    "protein": 13.8,
+    "carbohydrates": 49.2,
+    "fat": 5.6,
+    "fiber": 7.9,
+    "salt": 0.15
+  },
+  {
+    "name": "Sémola de trigo",
+    "calories": 348.2,
+    "protein": 12.6,
+    "carbohydrates": 70.4,
+    "fat": 1.2,
+    "fiber": 4,
+    "salt": 0.01
+  },
+  {
+    "name": "Germen de trigo",
+    "calories": 335.1,
+    "protein": 25,
+    "carbohydrates": 33.3,
+    "fat": 11.1,
+    "fiber": 15.9,
+    "salt": 0.02
+  },
+  {
+    "name": "Harina de centeno",
+    "calories": 357.6,
+    "protein": 8.2,
+    "carbohydrates": 75.9,
+    "fat": 1.8,
+    "fiber": 11.7,
+    "salt": 0
+  },
+  {
+    "name": "Harina de trigo integral",
+    "calories": 320.4,
+    "protein": 11.5,
+    "carbohydrates": 62.6,
+    "fat": 2.2,
+    "fiber": 9,
+    "salt": 0.01
+  },
+  {
+    "name": "Mazorca de maíz",
+    "calories": 390.1,
+    "protein": 8.4,
+    "carbohydrates": 85.6,
+    "fat": 0.9,
+    "fiber": 2.7,
+    "salt": 0.01
+  },
+  {
+    "name": "Tofu",
+    "calories": 118.7,
+    "protein": 11.5,
+    "carbohydrates": 3.3,
+    "fat": 6.6,
+    "fiber": 0.3,
+    "salt": 0.02
+  },
+  {
+    "name": "Haba seca",
+    "calories": 356.2,
+    "protein": 26.1,
+    "carbohydrates": 58.3,
+    "fat": 1.5,
+    "fiber": 25,
+    "salt": 0.03
+  },
+  {
+    "name": "Soja",
+    "calories": 158.1,
+    "protein": 13,
+    "carbohydrates": 11.1,
+    "fat": 6.8,
+    "fiber": 4.2,
+    "salt": 0.04
+  },
+  {
+    "name": "Harina de soja",
+    "calories": 410,
+    "protein": 37.3,
+    "carbohydrates": 13,
+    "fat": 23.3,
+    "fiber": 17.3,
+    "salt": 0.01
+  },
+  {
+    "name": "Semilla de sésamo",
+    "calories": 560,
+    "protein": 19,
+    "carbohydrates": 10,
+    "fat": 50,
+    "fiber": 11,
+    "salt": 0.1
+  },
+  {
+    "name": "Soja seca",
+    "calories": 350,
+    "protein": 35.9,
+    "carbohydrates": 9.7,
+    "fat": 18.6,
+    "fiber": 15.7,
+    "salt": 0.01
+  },
+  {
+    "name": "Carne de conejo de granja",
+    "calories": 131,
+    "protein": 20.7,
+    "carbohydrates": 0,
+    "fat": 5.3,
+    "fiber": 0,
+    "salt": 0.17
+  },
+  {
+    "name": "Kefir",
+    "calories": 63.9,
+    "protein": 3.3,
+    "carbohydrates": 4.8,
+    "fat": 3.5,
+    "fiber": 0,
+    "salt": 0.12
+  },
+  {
+    "name": "Angula",
+    "calories": 212.1,
+    "protein": 16.3,
+    "carbohydrates": 0,
+    "fat": 16.5,
+    "fiber": 0,
+    "salt": 0.23
+  },
+  {
+    "name": "Ciruela",
+    "calories": 53.6,
+    "protein": 0.8,
+    "carbohydrates": 12,
+    "fat": 0.2,
+    "fiber": 2.3,
+    "salt": 0
+  },
+  {
+    "name": "Clara de huevo de gallina",
+    "calories": 44.8,
+    "protein": 10.5,
+    "carbohydrates": 0.3,
+    "fat": 0.1,
+    "fiber": 0,
+    "salt": 0.4
+  },
+  {
+    "name": "Alcachofa",
+    "calories": 22.7,
+    "protein": 2.9,
+    "carbohydrates": 2.3,
+    "fat": 0.2,
+    "fiber": 9.4,
+    "salt": 0.04
+  },
+  {
+    "name": "Brécol",
+    "calories": 25.5,
+    "protein": 3,
+    "carbohydrates": 2.4,
+    "fat": 0.4,
+    "fiber": 3,
+    "salt": 0.03
+  },
+  {
+    "name": "Espárrago verde",
+    "calories": 25.2,
+    "protein": 2.9,
+    "carbohydrates": 2,
+    "fat": 0.6,
+    "fiber": 1.7,
+    "salt": 0.01
+  },
+  {
+    "name": "Col de bruselas",
+    "calories": 34.9,
+    "protein": 4,
+    "carbohydrates": 3.5,
+    "fat": 0.5,
+    "fiber": 4.3,
+    "salt": 0.02
+  },
+  {
+    "name": "Grosella negra",
+    "calories": 35.8,
+    "protein": 1.5,
+    "carbohydrates": 7.1,
+    "fat": 0.1,
+    "fiber": 7,
+    "salt": 0.02
+  },
+  {
+    "name": "Mango",
+    "calories": 58.7,
+    "protein": 0.6,
+    "carbohydrates": 13.4,
+    "fat": 0.2,
+    "fiber": 2.3,
+    "salt": 0.01
+  },
+  {
+    "name": "Centeno",
+    "calories": 406.5,
+    "protein": 14.8,
+    "carbohydrates": 79.8,
+    "fat": 2.5,
+    "fiber": 14.6,
+    "salt": 0.01
+  },
+  {
+    "name": "Jamón ibérico de cebo",
+    "calories": 301.4,
+    "protein": 32.3,
+    "carbohydrates": 0.1,
+    "fat": 19.2,
+    "fiber": 0,
+    "salt": 4.86
+  },
+  {
+    "name": "Jamón ibérico de bellota",
+    "calories": 333.2,
+    "protein": 33.2,
+    "carbohydrates": 0.5,
+    "fat": 22.2,
+    "fiber": 0,
+    "salt": 4.84
+  },
+  {
+    "name": "Yema de huevo de gallina",
+    "calories": 354.9,
+    "protein": 16.5,
+    "carbohydrates": 2.3,
+    "fat": 31.5,
+    "fiber": 0,
+    "salt": 0.13
+  },
+  {
+    "name": "Atún",
+    "calories": 118.6,
+    "protein": 22,
+    "carbohydrates": 0,
+    "fat": 3.3,
+    "fiber": 0,
+    "salt": 0.12
+  },
+  {
+    "name": "Bacaladilla",
+    "calories": 76.9,
+    "protein": 17.4,
+    "carbohydrates": 0,
+    "fat": 0.7,
+    "fiber": 0,
+    "salt": 0.19
+  },
+  {
+    "name": "Mijo",
+    "calories": 343.5,
+    "protein": 11,
+    "carbohydrates": 64.4,
+    "fat": 4.2,
+    "fiber": 8.5,
+    "salt": 0.01
+  },
+  {
+    "name": "Miso",
+    "calories": 208.2,
+    "protein": 11.7,
+    "carbohydrates": 26.5,
+    "fat": 6,
+    "fiber": 5.4,
+    "salt": 9.32
+  },
+  {
+    "name": "Muesli",
+    "calories": 381.7,
+    "protein": 9,
+    "carbohydrates": 61,
+    "fat": 11,
+    "fiber": 8,
+    "salt": 0.5
+  },
+  {
+    "name": "Pan de molde",
+    "calories": 248.1,
+    "protein": 7.3,
+    "carbohydrates": 45.7,
+    "fat": 3.7,
+    "fiber": 3.6,
+    "salt": 1.53
+  },
+  {
+    "name": "Pan integral",
+    "calories": 249.6,
+    "protein": 10.9,
+    "carbohydrates": 44,
+    "fat": 3,
+    "fiber": 6,
+    "salt": 1.32
+  },
+  {
+    "name": "Pan integral de molde",
+    "calories": 249.6,
+    "protein": 10.9,
+    "carbohydrates": 44,
+    "fat": 3,
+    "fiber": 6,
+    "salt": 1.32
+  },
+  {
+    "name": "Pan blanco tostado",
+    "calories": 303.7,
+    "protein": 10.1,
+    "carbohydrates": 59.2,
+    "fat": 2.5,
+    "fiber": 4.5,
+    "salt": 1.63
+  },
+  {
+    "name": "Pan de centeno",
+    "calories": 220.2,
+    "protein": 6.2,
+    "carbohydrates": 45.8,
+    "fat": 1,
+    "fiber": 6.5,
+    "salt": 1.31
+  },
+  {
+    "name": "Pan de leche",
+    "calories": 414.1,
+    "protein": 10,
+    "carbohydrates": 52.1,
+    "fat": 18.3,
+    "fiber": 2.3,
+    "salt": 0.43
+  },
+  {
+    "name": "Pan integral sin sal",
+    "calories": 249.6,
+    "protein": 10.9,
+    "carbohydrates": 44,
+    "fat": 3,
+    "fiber": 6,
+    "salt": 0.01
+  },
+  {
+    "name": "Pan rallado",
+    "calories": 257.8,
+    "protein": 8.5,
+    "carbohydrates": 51.5,
+    "fat": 1.6,
+    "fiber": 3.5,
+    "salt": 1.35
+  },
+  {
+    "name": "Pan tostado integral",
+    "calories": 303.7,
+    "protein": 10.1,
+    "carbohydrates": 59.2,
+    "fat": 2.5,
+    "fiber": 4.5,
+    "salt": 1.6
+  },
+  {
+    "name": "Semilla de lino",
+    "calories": 564.5,
+    "protein": 18.3,
+    "carbohydrates": 28.9,
+    "fat": 42.2,
+    "fiber": 27.3,
+    "salt": 0.07
+  },
+  {
+    "name": "Altramuz",
+    "calories": 397.2,
+    "protein": 36.2,
+    "carbohydrates": 40.4,
+    "fat": 9.7,
+    "fiber": 0,
+    "salt": 0.04
+  },
+  {
+    "name": "Castaña",
+    "calories": 178.5,
+    "protein": 2.6,
+    "carbohydrates": 36.5,
+    "fat": 2.5,
+    "fiber": 6.7,
+    "salt": 0.03
+  },
+  {
+    "name": "Haba",
+    "calories": 57.2,
+    "protein": 4.6,
+    "carbohydrates": 8.6,
+    "fat": 0.4,
+    "fiber": 4.2,
+    "salt": 0.3
+  },
+  {
+    "name": "Judía blanca",
+    "calories": 240.9,
+    "protein": 21.1,
+    "carbohydrates": 34.7,
+    "fat": 1.6,
+    "fiber": 23.2,
+    "salt": 0.04
+  },
+  {
+    "name": "Judía pinta",
+    "calories": 245.8,
+    "protein": 23.6,
+    "carbohydrates": 35.1,
+    "fat": 0.8,
+    "fiber": 24.9,
+    "salt": 0.06
+  },
+  {
+    "name": "Judía verde",
+    "calories": 27.5,
+    "protein": 2.2,
+    "carbohydrates": 3.7,
+    "fat": 0.4,
+    "fiber": 2.8,
+    "salt": 0.01
+  },
+  {
+    "name": "Nuez",
+    "calories": 592,
+    "protein": 14,
+    "carbohydrates": 3.3,
+    "fat": 63.3,
+    "fiber": 5.2,
+    "salt": 0.01
+  },
+  {
+    "name": "Pipa de calabaza",
+    "calories": 600.1,
+    "protein": 30.2,
+    "carbohydrates": 10.7,
+    "fat": 47.3,
+    "fiber": 6,
+    "salt": 0.02
+  },
+  {
+    "name": "Pipa de girasol",
+    "calories": 571.2,
+    "protein": 27,
+    "carbohydrates": 20,
+    "fat": 43,
+    "fiber": 2.7,
+    "salt": 0.01
+  },
+  {
+    "name": "Pistacho",
+    "calories": 591.6,
+    "protein": 17.6,
+    "carbohydrates": 15.7,
+    "fat": 49.2,
+    "fiber": 6.5,
+    "salt": 0.04
+  },
+  {
+    "name": "Acelga",
+    "calories": 21.3,
+    "protein": 2.1,
+    "carbohydrates": 2.7,
+    "fat": 0.2,
+    "fiber": 1,
+    "salt": 0.42
+  },
+  {
+    "name": "Caqui",
+    "calories": 66.8,
+    "protein": 0.7,
+    "carbohydrates": 15.3,
+    "fat": 0.2,
+    "fiber": 2.5,
+    "salt": 0.01
+  },
+  {
+    "name": "Aceituna",
+    "calories": 119.9,
+    "protein": 1.3,
+    "carbohydrates": 1,
+    "fat": 12.5,
+    "fiber": 4.8,
+    "salt": 0.14
+  },
+  {
+    "name": "Aceituna negra con hueso",
+    "calories": 287.9,
+    "protein": 2,
+    "carbohydrates": 4,
+    "fat": 29.8,
+    "fiber": 3.5,
+    "salt": 0.14
+  },
+  {
+    "name": "Aguacate",
+    "calories": 136.2,
+    "protein": 1.5,
+    "carbohydrates": 0.4,
+    "fat": 12,
+    "fiber": 6.3,
+    "salt": 0.01
+  },
+  {
+    "name": "Avellana",
+    "calories": 653,
+    "protein": 12,
+    "carbohydrates": 10.5,
+    "fat": 56.3,
+    "fiber": 8.2,
+    "salt": 0.01
+  },
+  {
+    "name": "Cereza",
+    "calories": 62.5,
+    "protein": 0.8,
+    "carbohydrates": 13.5,
+    "fat": 0.5,
+    "fiber": 1.5,
+    "salt": 0.01
+  },
+  {
+    "name": "Chirimoya",
+    "calories": 87.1,
+    "protein": 1,
+    "carbohydrates": 20,
+    "fat": 0.2,
+    "fiber": 1.9,
+    "salt": 0.01
+  },
+  {
+    "name": "Dátil",
+    "calories": 286.8,
+    "protein": 2.5,
+    "carbohydrates": 67,
+    "fat": 0.5,
+    "fiber": 7.1,
+    "salt": 0.01
+  },
+  {
+    "name": "Fresa",
+    "calories": 35.7,
+    "protein": 0.7,
+    "carbohydrates": 7,
+    "fat": 0.5,
+    "fiber": 2.2,
+    "salt": 0.01
+  },
+  {
+    "name": "Granada",
+    "calories": 62.4,
+    "protein": 1,
+    "carbohydrates": 13.7,
+    "fat": 0.3,
+    "fiber": 3.5,
+    "salt": 0.01
+  },
+  {
+    "name": "Kiwi",
+    "calories": 52,
+    "protein": 1.1,
+    "carbohydrates": 10.6,
+    "fat": 0.5,
+    "fiber": 1.9,
+    "salt": 0.01
+  },
+  {
+    "name": "Nectarina",
+    "calories": 43.1,
+    "protein": 1.4,
+    "carbohydrates": 9,
+    "fat": 0.1,
+    "fiber": 2.2,
+    "salt": 0
+  },
+  {
+    "name": "Paraguaya",
+    "calories": 46,
+    "protein": 0.9,
+    "carbohydrates": 10.2,
+    "fat": 0.1,
+    "fiber": 2.2,
+    "salt": 0
+  },
+  {
+    "name": "Piñon",
+    "calories": 679.8,
+    "protein": 14,
+    "carbohydrates": 4,
+    "fat": 62.6,
+    "fiber": 1.9,
+    "salt": 0
+  },
+  {
+    "name": "Plátano",
+    "calories": 88.8,
+    "protein": 1.2,
+    "carbohydrates": 20,
+    "fat": 0.3,
+    "fiber": 3.4,
+    "salt": 0
+  },
+  {
+    "name": "Pomelo",
+    "calories": 25.7,
+    "protein": 0.7,
+    "carbohydrates": 5.4,
+    "fat": 0.1,
+    "fiber": 1.3,
+    "salt": 0
+  },
+  {
+    "name": "Uva pasa",
+    "calories": 296,
+    "protein": 2.5,
+    "carbohydrates": 69.3,
+    "fat": 0.5,
+    "fiber": 6.5,
+    "salt": 0.05
+  },
+  {
+    "name": "Solomillo de avestruz",
+    "calories": 114.1,
+    "protein": 21.7,
+    "carbohydrates": 0,
+    "fat": 3,
+    "fiber": 0,
+    "salt": 0.2
+  },
+  {
+    "name": "Cecina",
+    "calories": 242.5,
+    "protein": 39,
+    "carbohydrates": 0,
+    "fat": 9.5,
+    "fiber": 0,
+    "salt": 5.25
+  },
+  {
+    "name": "Chuleta de cerdo",
+    "calories": 209.8,
+    "protein": 19,
+    "carbohydrates": 0,
+    "fat": 15,
+    "fiber": 0,
+    "salt": 0.17
+  },
+  {
+    "name": "Costilla de cerdo",
+    "calories": 278.2,
+    "protein": 17.1,
+    "carbohydrates": 0,
+    "fat": 23.6,
+    "fiber": 0,
+    "salt": 0.19
+  },
+  {
+    "name": "Lomo de cerdo",
+    "calories": 151.8,
+    "protein": 18,
+    "carbohydrates": 0,
+    "fat": 8.9,
+    "fiber": 0,
+    "salt": 0.16
+  },
+  {
+    "name": "Cerdo",
+    "calories": 270.8,
+    "protein": 16.6,
+    "carbohydrates": 0,
+    "fat": 23,
+    "fiber": 0,
+    "salt": 1.9
+  },
+  {
+    "name": "Corazon de vaca",
+    "calories": 104.4,
+    "protein": 17,
+    "carbohydrates": 0,
+    "fat": 4,
+    "fiber": 0,
+    "salt": 0.23
+  },
+  {
+    "name": "Costilla de cordero",
+    "calories": 241.1,
+    "protein": 15.6,
+    "carbohydrates": 0,
+    "fat": 20.1,
+    "fiber": 0,
+    "salt": 0.19
+  },
+  {
+    "name": "Cordero",
+    "calories": 352.6,
+    "protein": 15.6,
+    "carbohydrates": 0,
+    "fat": 32.7,
+    "fiber": 0,
+    "salt": 0.17
+  },
+  {
+    "name": "Foie gras",
+    "calories": 441.9,
+    "protein": 10,
+    "carbohydrates": 3,
+    "fat": 44,
+    "fiber": 0,
+    "salt": 1.85
+  },
+  {
+    "name": "Higado de pollo",
+    "calories": 136.3,
+    "protein": 22.1,
+    "carbohydrates": 1.2,
+    "fat": 4.7,
+    "fiber": 0,
+    "salt": 0.17
+  },
+  {
+    "name": "Jamón serrano",
+    "calories": 317.7,
+    "protein": 28.8,
+    "carbohydrates": 0.2,
+    "fat": 22.6,
+    "fiber": 0,
+    "salt": 5.33
+  },
+  {
+    "name": "Lacón",
+    "calories": 213.4,
+    "protein": 19.1,
+    "carbohydrates": 9.9,
+    "fat": 10.8,
+    "fiber": 0,
+    "salt": 2.41
+  },
+  {
+    "name": "Lengua de cerdo",
+    "calories": 156.1,
+    "protein": 16,
+    "carbohydrates": 0,
+    "fat": 10.3,
+    "fiber": 0,
+    "salt": 0.23
+  },
+  {
+    "name": "Lengua de cordero",
+    "calories": 191.3,
+    "protein": 15.3,
+    "carbohydrates": 0,
+    "fat": 14.6,
+    "fiber": 0,
+    "salt": 0.2
+  },
+  {
+    "name": "Lomo embuchado",
+    "calories": 321.2,
+    "protein": 34,
+    "carbohydrates": 0,
+    "fat": 20.7,
+    "fiber": 0,
+    "salt": 3.67
+  },
+  {
+    "name": "Molleja de cordero",
+    "calories": 131.1,
+    "protein": 15.3,
+    "carbohydrates": 0,
+    "fat": 7.8,
+    "fiber": 0,
+    "salt": 0.19
+  },
+  {
+    "name": "Pavo",
+    "calories": 157.2,
+    "protein": 20.2,
+    "carbohydrates": 0,
+    "fat": 8.5,
+    "fiber": 0,
+    "salt": 0.16
+  },
+  {
+    "name": "Perdiz",
+    "calories": 111.4,
+    "protein": 22.4,
+    "carbohydrates": 0,
+    "fat": 2.3,
+    "fiber": 0,
+    "salt": 0.12
+  },
+  {
+    "name": "Ala de pollo",
+    "calories": 215.7,
+    "protein": 18.3,
+    "carbohydrates": 0,
+    "fat": 16,
+    "fiber": 0,
+    "salt": 0.18
+  },
+  {
+    "name": "Pollo",
+    "calories": 165.8,
+    "protein": 19.9,
+    "carbohydrates": 0,
+    "fat": 9.6,
+    "fiber": 0,
+    "salt": 0.21
+  },
+  {
+    "name": "Pulmón de cerdo",
+    "calories": 81.3,
+    "protein": 14.1,
+    "carbohydrates": 0,
+    "fat": 2.7,
+    "fiber": 0,
+    "salt": 0.38
+  },
+  {
+    "name": "Pulmón de cordero",
+    "calories": 90.8,
+    "protein": 16.7,
+    "carbohydrates": 0,
+    "fat": 2.6,
+    "fiber": 0,
+    "salt": 0.39
+  },
+  {
+    "name": "Pulmón de ternera",
+    "calories": 87.9,
+    "protein": 16.2,
+    "carbohydrates": 0,
+    "fat": 2.5,
+    "fiber": 0,
+    "salt": 0.49
+  },
+  {
+    "name": "Rabo de toro",
+    "calories": 199.4,
+    "protein": 18.6,
+    "carbohydrates": 0,
+    "fat": 14,
+    "fiber": 0,
+    "salt": 0.15
+  },
+  {
+    "name": "Berberechos",
+    "calories": 47.9,
+    "protein": 10.7,
+    "carbohydrates": 0,
+    "fat": 0.5,
+    "fiber": 0,
+    "salt": 0.14
+  },
+  {
+    "name": "Salchichón",
+    "calories": 419.8,
+    "protein": 25.8,
+    "carbohydrates": 2,
+    "fat": 34.7,
+    "fiber": 0,
+    "salt": 2.65
+  },
+  {
+    "name": "Besugo",
+    "calories": 89.5,
+    "protein": 18.1,
+    "carbohydrates": 0,
+    "fat": 1.8,
+    "fiber": 0,
+    "salt": 0.05
+  },
+  {
+    "name": "Bogavante",
+    "calories": 92,
+    "protein": 18.3,
+    "carbohydrates": 0,
+    "fat": 2,
+    "fiber": 0,
+    "salt": 0.68
+  },
+  {
+    "name": "Boquerón",
+    "calories": 127.2,
+    "protein": 17.6,
+    "carbohydrates": 0,
+    "fat": 6.3,
+    "fiber": 0,
+    "salt": 0.29
+  },
+  {
+    "name": "Tocino",
+    "calories": 662,
+    "protein": 8.4,
+    "carbohydrates": 0,
+    "fat": 71,
+    "fiber": 0,
+    "salt": 1.4
+  },
+  {
+    "name": "Caballa",
+    "calories": 181.1,
+    "protein": 18.7,
+    "carbohydrates": 0,
+    "fat": 11.9,
+    "fiber": 0,
+    "salt": 0.21
+  },
+  {
+    "name": "Camarón",
+    "calories": 82.9,
+    "protein": 17.6,
+    "carbohydrates": 1.5,
+    "fat": 0.6,
+    "fiber": 0,
+    "salt": 0.47
+  },
+  {
+    "name": "Cangrejo de río crudo",
+    "calories": 124.3,
+    "protein": 19.5,
+    "carbohydrates": 0,
+    "fat": 5.1,
+    "fiber": 0,
+    "salt": 0.93
+  },
+  {
+    "name": "Caracol",
+    "calories": 85.9,
+    "protein": 16.1,
+    "carbohydrates": 2,
+    "fat": 1.4,
+    "fiber": 0,
+    "salt": 0.17
+  },
+  {
+    "name": "Centollo",
+    "calories": 127.7,
+    "protein": 20.1,
+    "carbohydrates": 0,
+    "fat": 5.2,
+    "fiber": 0,
+    "salt": 0.93
+  },
+  {
+    "name": "Chipiron",
+    "calories": 81.3,
+    "protein": 16.3,
+    "carbohydrates": 0.7,
+    "fat": 1.4,
+    "fiber": 0,
+    "salt": 0.28
+  },
+  {
+    "name": "Chirla",
+    "calories": 11.2,
+    "protein": 10.7,
+    "carbohydrates": 0,
+    "fat": 0.5,
+    "fiber": 0,
+    "salt": 1.5
+  },
+  {
+    "name": "Cigala",
+    "calories": 86.3,
+    "protein": 17.7,
+    "carbohydrates": 0.5,
+    "fat": 1.4,
+    "fiber": 0,
+    "salt": 1
+  },
+  {
+    "name": "Congrio",
+    "calories": 102,
+    "protein": 19,
+    "carbohydrates": 0,
+    "fat": 2.8,
+    "fiber": 0,
+    "salt": 0.13
+  },
+  {
+    "name": "Faneca",
+    "calories": 75.5,
+    "protein": 15.4,
+    "carbohydrates": 1,
+    "fat": 1,
+    "fiber": 0,
+    "salt": 0.35
+  },
+  {
+    "name": "Fletan",
+    "calories": 84.6,
+    "protein": 17.5,
+    "carbohydrates": 0.5,
+    "fat": 1.3,
+    "fiber": 0,
+    "salt": 0.25
+  },
+  {
+    "name": "Caviar",
+    "calories": 274.5,
+    "protein": 24.6,
+    "carbohydrates": 4,
+    "fat": 17.9,
+    "fiber": 0,
+    "salt": 3.75
+  },
+  {
+    "name": "Langosta",
+    "calories": 90.8,
+    "protein": 18,
+    "carbohydrates": 0,
+    "fat": 2,
+    "fiber": 0,
+    "salt": 0.68
+  },
+  {
+    "name": "Langostino",
+    "calories": 111.9,
+    "protein": 24.3,
+    "carbohydrates": 1.5,
+    "fat": 0.8,
+    "fiber": 0,
+    "salt": 0.76
+  },
+  {
+    "name": "Lenguado",
+    "calories": 78.5,
+    "protein": 16.5,
+    "carbohydrates": 0,
+    "fat": 1.3,
+    "fiber": 0,
+    "salt": 0.25
+  },
+  {
+    "name": "Lubina",
+    "calories": 84.6,
+    "protein": 18,
+    "carbohydrates": 0,
+    "fat": 1.3,
+    "fiber": 0,
+    "salt": 0.17
+  },
+  {
+    "name": "Mejillon",
+    "calories": 60.7,
+    "protein": 10.8,
+    "carbohydrates": 0,
+    "fat": 1.9,
+    "fiber": 0,
+    "salt": 0.53
+  },
+  {
+    "name": "Merluza",
+    "calories": 64.4,
+    "protein": 11.9,
+    "carbohydrates": 0,
+    "fat": 1.8,
+    "fiber": 0,
+    "salt": 0.25
+  },
+  {
+    "name": "Panga",
+    "calories": 66.3,
+    "protein": 13.4,
+    "carbohydrates": 0.3,
+    "fat": 1.2,
+    "fiber": 0,
+    "salt": 0.69
+  },
+  {
+    "name": "Percebe",
+    "calories": 59.7,
+    "protein": 13.6,
+    "carbohydrates": 0,
+    "fat": 0.5,
+    "fiber": 0,
+    "salt": 0.04
+  },
+  {
+    "name": "Pijota",
+    "calories": 64.4,
+    "protein": 11.9,
+    "carbohydrates": 0,
+    "fat": 1.8,
+    "fiber": 0,
+    "salt": 0.25
+  },
+  {
+    "name": "Ajo",
+    "calories": 116.8,
+    "protein": 3.9,
+    "carbohydrates": 24.3,
+    "fat": 0.2,
+    "fiber": 1.2,
+    "salt": 0.05
+  },
+  {
+    "name": "Alcaparra",
+    "calories": 25.7,
+    "protein": 2.4,
+    "carbohydrates": 2.1,
+    "fat": 0.9,
+    "fiber": 1.5,
+    "salt": 7.41
+  },
+  {
+    "name": "Apio",
+    "calories": 10.6,
+    "protein": 0.9,
+    "carbohydrates": 1.5,
+    "fat": 0.1,
+    "fiber": 2,
+    "salt": 0.28
+  },
+  {
+    "name": "Arandano",
+    "calories": 32.4,
+    "protein": 0.6,
+    "carbohydrates": 6,
+    "fat": 0.6,
+    "fiber": 4.9,
+    "salt": 0
+  },
+  {
+    "name": "Bambú",
+    "calories": 34.3,
+    "protein": 2.6,
+    "carbohydrates": 5.2,
+    "fat": 0.3,
+    "fiber": 2.2,
+    "salt": 0.01
+  },
+  {
+    "name": "Berenjena",
+    "calories": 20.1,
+    "protein": 0.7,
+    "carbohydrates": 3.8,
+    "fat": 0.2,
+    "fiber": 2.4,
+    "salt": 0.01
+  },
+  {
+    "name": "Borraja",
+    "calories": 25.9,
+    "protein": 1.8,
+    "carbohydrates": 3.1,
+    "fat": 0.7,
+    "fiber": 0,
+    "salt": 0.2
+  },
+  {
+    "name": "Calabacín",
+    "calories": 17.2,
+    "protein": 1.8,
+    "carbohydrates": 2,
+    "fat": 0.2,
+    "fiber": 1,
+    "salt": 0.01
+  },
+  {
+    "name": "Calabaza",
+    "calories": 32.1,
+    "protein": 1.2,
+    "carbohydrates": 5.6,
+    "fat": 0.5,
+    "fiber": 2.4,
+    "salt": 0
+  },
+  {
+    "name": "Canonigos",
+    "calories": 13.7,
+    "protein": 1.8,
+    "carbohydrates": 0.7,
+    "fat": 0.4,
+    "fiber": 1.5,
+    "salt": 0.01
+  },
+  {
+    "name": "Cardo",
+    "calories": 21.7,
+    "protein": 1.4,
+    "carbohydrates": 3.5,
+    "fat": 0.2,
+    "fiber": 1,
+    "salt": 0.55
+  },
+  {
+    "name": "Champiñon",
+    "calories": 26.2,
+    "protein": 1.8,
+    "carbohydrates": 4,
+    "fat": 0.3,
+    "fiber": 2.5,
+    "salt": 0.01
+  },
+  {
+    "name": "Col blanca",
+    "calories": 35.8,
+    "protein": 4.3,
+    "carbohydrates": 2.5,
+    "fat": 0.9,
+    "fiber": 4.2,
+    "salt": 0.09
+  },
+  {
+    "name": "Endibia",
+    "calories": 9.1,
+    "protein": 1.1,
+    "carbohydrates": 0.7,
+    "fat": 0.2,
+    "fiber": 1.9,
+    "salt": 0.01
+  },
+  {
+    "name": "Escarola",
+    "calories": 12.3,
+    "protein": 1.6,
+    "carbohydrates": 1,
+    "fat": 0.2,
+    "fiber": 2.6,
+    "salt": 0.04
+  },
+  {
+    "name": "Grelo",
+    "calories": 11.4,
+    "protein": 2.7,
+    "carbohydrates": 0.1,
+    "fat": 0.2,
+    "fiber": 3.9,
+    "salt": 0.02
+  },
+  {
+    "name": "Lechuga",
+    "calories": 15.6,
+    "protein": 1.1,
+    "carbohydrates": 1.4,
+    "fat": 0.6,
+    "fiber": 1.5,
+    "salt": 0.01
+  },
+  {
+    "name": "Lombarda",
+    "calories": 22.2,
+    "protein": 1.5,
+    "carbohydrates": 3.5,
+    "fat": 0.2,
+    "fiber": 2.5,
+    "salt": 0.02
+  },
+  {
+    "name": "Patata",
+    "calories": 72.5,
+    "protein": 2.2,
+    "carbohydrates": 15.2,
+    "fat": 0.2,
+    "fiber": 1.7,
+    "salt": 0.04
+  },
+  {
+    "name": "Pepino",
+    "calories": 11.9,
+    "protein": 0.7,
+    "carbohydrates": 2,
+    "fat": 0.1,
+    "fiber": 0.8,
+    "salt": 0.01
+  },
+  {
+    "name": "Pimiento rojo",
+    "calories": 28.9,
+    "protein": 1.3,
+    "carbohydrates": 4.5,
+    "fat": 0.6,
+    "fiber": 1.8,
+    "salt": 0.01
+  },
+  {
+    "name": "Rábano",
+    "calories": 15.7,
+    "protein": 0.6,
+    "carbohydrates": 2.6,
+    "fat": 0.3,
+    "fiber": 1.2,
+    "salt": 0.03
+  },
+  {
+    "name": "Repollo",
+    "calories": 25.9,
+    "protein": 1.8,
+    "carbohydrates": 3.7,
+    "fat": 0.4,
+    "fiber": 3.1,
+    "salt": 0.04
+  },
+  {
+    "name": "Rúcula",
+    "calories": 31.1,
+    "protein": 2.6,
+    "carbohydrates": 3.6,
+    "fat": 0.7,
+    "fiber": 1.6,
+    "salt": 0.07
+  },
+  {
+    "name": "Seta",
+    "calories": 26.2,
+    "protein": 1.8,
+    "carbohydrates": 4,
+    "fat": 0.3,
+    "fiber": 2.5,
+    "salt": 0.01
+  },
+  {
+    "name": "Tomate",
+    "calories": 18.8,
+    "protein": 0.9,
+    "carbohydrates": 3.5,
+    "fat": 0.1,
+    "fiber": 1.1,
+    "salt": 0.04
+  },
+  {
+    "name": "Zanahoria",
+    "calories": 34.3,
+    "protein": 0.8,
+    "carbohydrates": 7,
+    "fat": 0.3,
+    "fiber": 2.6,
+    "salt": 0.17
+  },
+  {
+    "name": "Raya",
+    "calories": 97.9,
+    "protein": 20.6,
+    "carbohydrates": 0.8,
+    "fat": 1.3,
+    "fiber": 0,
+    "salt": 0.23
+  },
+  {
+    "name": "Pulpo",
+    "calories": 90.8,
+    "protein": 17.9,
+    "carbohydrates": 1.4,
+    "fat": 1.4,
+    "fiber": 0,
+    "salt": 0.91
+  },
+  {
+    "name": "Albahaca",
+    "calories": 177,
+    "protein": 14.4,
+    "carbohydrates": 20.5,
+    "fat": 4,
+    "fiber": 40.5,
+    "salt": 0.09
+  },
+  {
+    "name": "Azafrán",
+    "calories": 348.4,
+    "protein": 11.4,
+    "carbohydrates": 61.5,
+    "fat": 5.9,
+    "fiber": 3.9,
+    "salt": 0.38
+  },
+  {
+    "name": "Canela en polvo",
+    "calories": 371.6,
+    "protein": 3.9,
+    "carbohydrates": 80.6,
+    "fat": 3.2,
+    "fiber": 54.3,
+    "salt": 0.07
+  },
+  {
+    "name": "Leche de almendra",
+    "calories": 351.3,
+    "protein": 14.5,
+    "carbohydrates": 60,
+    "fat": 5.5,
+    "fiber": 6,
+    "salt": 0.04
+  },
+  {
+    "name": "Leche de vaca entera",
+    "calories": 65.1,
+    "protein": 3.1,
+    "carbohydrates": 4.7,
+    "fat": 3.8,
+    "fiber": 0,
+    "salt": 0.12
+  },
+  {
+    "name": "Queso mozzarella",
+    "calories": 221.6,
+    "protein": 19.5,
+    "carbohydrates": 0,
+    "fat": 16.1,
+    "fiber": 0,
+    "salt": 0.93
+  },
+  {
+    "name": "Requesón",
+    "calories": 101.5,
+    "protein": 12.3,
+    "carbohydrates": 3.3,
+    "fat": 4.3,
+    "fiber": 0,
+    "salt": 0.57
+  },
+  {
+    "name": "Yogur griego",
+    "calories": 138.1,
+    "protein": 6.4,
+    "carbohydrates": 5.4,
+    "fat": 10.2,
+    "fiber": 0,
+    "salt": 0.18
+  },
+  {
+    "name": "Aceite de lino",
+    "calories": 884.3,
+    "protein": 0,
+    "carbohydrates": 0,
+    "fat": 100,
+    "fiber": 0,
+    "salt": 0
+  },
+  {
+    "name": "Aceite de oliva",
+    "calories": 883.4,
+    "protein": 0,
+    "carbohydrates": 0,
+    "fat": 99.9,
+    "fiber": 0,
+    "salt": 0
+  },
+  {
+    "name": "Aceite de soja",
+    "calories": 884.2,
+    "protein": 0,
+    "carbohydrates": 0,
+    "fat": 100,
+    "fiber": 0,
+    "salt": 0
+  },
+  {
+    "name": "Grasa de pollo",
+    "calories": 882.6,
+    "protein": 0,
+    "carbohydrates": 0,
+    "fat": 99.8,
+    "fiber": 0,
+    "salt": 0
+  },
+  {
+    "name": "Lecitina de soja",
+    "calories": 501.2,
+    "protein": 0,
+    "carbohydrates": 8,
+    "fat": 53,
+    "fiber": 0,
+    "salt": 0
+  },
+  {
+    "name": "Manteca",
+    "calories": 875.5,
+    "protein": 0,
+    "carbohydrates": 0,
+    "fat": 99,
+    "fiber": 0,
+    "salt": 0
+  },
+  {
+    "name": "Margarina de maíz",
+    "calories": 714.8,
+    "protein": 0.9,
+    "carbohydrates": 0.9,
+    "fat": 80,
+    "fiber": 0,
+    "salt": 0.49
+  },
+  {
+    "name": "Nata montada",
+    "calories": 303.2,
+    "protein": 2.4,
+    "carbohydrates": 3.3,
+    "fat": 31.7,
+    "fiber": 0,
+    "salt": 0.09
+  },
+  {
+    "name": "Vainilla",
+    "calories": 52.4,
+    "protein": 0.1,
+    "carbohydrates": 12.7,
+    "fat": 0.1,
+    "fiber": 0,
+    "salt": 0.02
+  },
+  {
+    "name": "Tomillo seco",
+    "calories": 334.4,
+    "protein": 9.1,
+    "carbohydrates": 57.1,
+    "fat": 7.4,
+    "fiber": 18.6,
+    "salt": 0.14
+  },
+  {
+    "name": "Surimi",
+    "calories": 90.7,
+    "protein": 14.7,
+    "carbohydrates": 6.1,
+    "fat": 0.7,
+    "fiber": 0,
+    "salt": 1.75
+  },
+  {
+    "name": "Pasta de sésamo",
+    "calories": 590.5,
+    "protein": 18.2,
+    "carbohydrates": 0.9,
+    "fat": 58,
+    "fiber": 7.9,
+    "salt": 0.05
+  },
+  {
+    "name": "Seitán",
+    "calories": 123.3,
+    "protein": 24,
+    "carbohydrates": 2,
+    "fat": 2,
+    "fiber": 0,
+    "salt": 0
+  },
+  {
+    "name": "Comino",
+    "calories": 417.7,
+    "protein": 17.8,
+    "carbohydrates": 45.4,
+    "fat": 18.2,
+    "fiber": 10.5,
+    "salt": 0.42
+  },
+  {
+    "name": "Ajo en polvo",
+    "calories": 369.2,
+    "protein": 16.6,
+    "carbohydrates": 72.7,
+    "fat": 0.7,
+    "fiber": 9,
+    "salt": 0.15
+  },
+  {
+    "name": "Corteza de trigo",
+    "calories": 481.9,
+    "protein": 10.3,
+    "carbohydrates": 52.2,
+    "fat": 25.8,
+    "fiber": 6.3,
+    "salt": 3.09
+  },
+  {
+    "name": "Salsa de soja",
+    "calories": 63.5,
+    "protein": 8.7,
+    "carbohydrates": 6.7,
+    "fat": 0.1,
+    "fiber": 1.6,
+    "salt": 14.3
+  },
+  {
+    "name": "Romero",
+    "calories": 343.3,
+    "protein": 5,
+    "carbohydrates": 46.4,
+    "fat": 15.2,
+    "fiber": 24.1,
+    "salt": 0.13
+  },
+  {
+    "name": "Pimienta negra",
+    "calories": 55,
+    "protein": 11,
+    "carbohydrates": 38.3,
+    "fat": 3.3,
+    "fiber": 26.5,
+    "salt": 0.11
+  },
+  {
+    "name": "Pimienta blanca",
+    "calories": 55.4,
+    "protein": 10.4,
+    "carbohydrates": 42.4,
+    "fat": 2.1,
+    "fiber": 26.2,
+    "salt": 0.01
+  },
+  {
+    "name": "Pimentón en polvo",
+    "calories": 329.5,
+    "protein": 14.8,
+    "carbohydrates": 38,
+    "fat": 13,
+    "fiber": 20,
+    "salt": 0.09
+  },
+  {
+    "name": "Perejil",
+    "calories": 34.7,
+    "protein": 3,
+    "carbohydrates": 2.7,
+    "fat": 1.3,
+    "fiber": 5,
+    "salt": 0.08
+  },
+  {
+    "name": "Orégano seco",
+    "calories": 415.8,
+    "protein": 11,
+    "carbohydrates": 68.9,
+    "fat": 10.3,
+    "fiber": 42.8,
+    "salt": 0.04
+  },
+  {
+    "name": "Nuez moscada",
+    "calories": 544.8,
+    "protein": 5.8,
+    "carbohydrates": 49.3,
+    "fat": 36.3,
+    "fiber": 20.8,
+    "salt": 0.04
+  },
+  {
+    "name": "Hoja de laurel",
+    "calories": 302.6,
+    "protein": 7.6,
+    "carbohydrates": 48.6,
+    "fat": 8.4,
+    "fiber": 26.3,
+    "salt": 0.06
+  },
+  {
+    "name": "Jengibre",
+    "calories": 51.7,
+    "protein": 1.7,
+    "carbohydrates": 9.5,
+    "fat": 0.7,
+    "fiber": 0,
+    "salt": 0.03
+  },
+  {
+    "name": "Guindilla picante",
+    "calories": 44.5,
+    "protein": 1.9,
+    "carbohydrates": 6.7,
+    "fat": 1.1,
+    "fiber": 1.5,
+    "salt": 0.02
+  },
+  {
+    "name": "Guindilla en polvo",
+    "calories": 303.8,
+    "protein": 12,
+    "carbohydrates": 31.7,
+    "fat": 14.3,
+    "fiber": 34.8,
+    "salt": 0.07
+  },
+  {
+    "name": "Gomasio",
+    "calories": 88.6,
+    "protein": 2.7,
+    "carbohydrates": 0.1,
+    "fat": 8.7,
+    "fiber": 0,
+    "salt": 0.88
+  },
+  {
+    "name": "Gazpacho",
+    "calories": 33.7,
+    "protein": 0.6,
+    "carbohydrates": 1.6,
+    "fat": 2.8,
+    "fiber": 0.2,
+    "salt": 0.76
+  },
+  {
+    "name": "Curry",
+    "calories": 437.4,
+    "protein": 15,
+    "carbohydrates": 60,
+    "fat": 15,
+    "fiber": 0,
+    "salt": 0.13
+  },
+  {
+    "name": "Rodaballo",
+    "calories": 97.3,
+    "protein": 16.1,
+    "carbohydrates": 0,
+    "fat": 3.6,
+    "fiber": 0,
+    "salt": 0.28
+  },
+  {
+    "name": "Salmón",
+    "calories": 180.9,
+    "protein": 18.4,
+    "carbohydrates": 0,
+    "fat": 12,
+    "fiber": 0,
+    "salt": 0.24
+  },
+  {
+    "name": "Salmonete",
+    "calories": 90,
+    "protein": 14.1,
+    "carbohydrates": 0,
+    "fat": 3.7,
+    "fiber": 0,
+    "salt": 0.23
+  },
+  {
+    "name": "Sardina",
+    "calories": 139.9,
+    "protein": 18.1,
+    "carbohydrates": 0,
+    "fat": 7.5,
+    "fiber": 0,
+    "salt": 0.25
+  },
+  {
+    "name": "Sargo",
+    "calories": 99.9,
+    "protein": 15,
+    "carbohydrates": 0,
+    "fat": 4.4,
+    "fiber": 0,
+    "salt": 0.19
+  },
+  {
+    "name": "Trucha",
+    "calories": 90.3,
+    "protein": 15.7,
+    "carbohydrates": 0,
+    "fat": 3,
+    "fiber": 0,
+    "salt": 0.14
+  },
+  {
+    "name": "Vieira",
+    "calories": 85.2,
+    "protein": 19,
+    "carbohydrates": 0,
+    "fat": 0.9,
+    "fiber": 0,
+    "salt": 0.68
+  },
+  {
+    "name": "Zamburiñas",
+    "calories": 77.5,
+    "protein": 15.4,
+    "carbohydrates": 1.5,
+    "fat": 1,
+    "fiber": 0,
+    "salt": 0.14
+  },
+  {
+    "name": "Almeja",
+    "calories": 47.9,
+    "protein": 10.7,
+    "carbohydrates": 0,
+    "fat": 1.6,
+    "fiber": 0,
+    "salt": 0.14
+  },
+  {
+    "name": "Harina de maíz",
+    "calories": 328,
+    "protein": 8.3,
+    "carbohydrates": 66.3,
+    "fat": 2.8,
+    "fiber": 9.4,
+    "salt": 0
+  },
+  {
+    "name": "Arroz",
+    "calories": 385.8,
+    "protein": 7,
+    "carbohydrates": 86,
+    "fat": 0.9,
+    "fiber": 0.2,
+    "salt": 0.01
+  },
+  {
+    "name": "Gofio",
+    "calories": 397.2,
+    "protein": 10.8,
+    "carbohydrates": 81.6,
+    "fat": 2.5,
+    "fiber": 1.9,
+    "salt": 0
+  },
+  {
+    "name": "Carne picada",
+    "calories": 243.1,
+    "protein": 15.2,
+    "carbohydrates": 0,
+    "fat": 20.5,
+    "fiber": 0,
+    "salt": 1.5
+  },
+  {
+    "name": "Costillar de cabrito lechal",
+    "calories": 224.2,
+    "protein": 17.1,
+    "carbohydrates": 0,
+    "fat": 17.5,
+    "fiber": 0,
+    "salt": 0.16
+  },
+  {
+    "name": "Espalda de cabrito lechal",
+    "calories": 204.6,
+    "protein": 18.6,
+    "carbohydrates": 0,
+    "fat": 14.6,
+    "fiber": 0,
+    "salt": 0.21
+  },
+  {
+    "name": "Pierna de cabrito lechal",
+    "calories": 189.4,
+    "protein": 18.8,
+    "carbohydrates": 0,
+    "fat": 12.8,
+    "fiber": 0,
+    "salt": 0.18
+  },
+  {
+    "name": "Costillar de cordero lechal",
+    "calories": 191.2,
+    "protein": 18.5,
+    "carbohydrates": 0,
+    "fat": 13.1,
+    "fiber": 0,
+    "salt": 0.22
+  },
+  {
+    "name": "Espalda de cordero lechal",
+    "calories": 188.7,
+    "protein": 19.5,
+    "carbohydrates": 0,
+    "fat": 12.4,
+    "fiber": 0,
+    "salt": 0.2
+  },
+  {
+    "name": "Pierna de cordero lechal",
+    "calories": 186.9,
+    "protein": 19.2,
+    "carbohydrates": 0,
+    "fat": 12.3,
+    "fiber": 0,
+    "salt": 0.2
+  },
+  {
+    "name": "Costillar de cordero ligero",
+    "calories": 233.4,
+    "protein": 17.3,
+    "carbohydrates": 0,
+    "fat": 18.5,
+    "fiber": 0,
+    "salt": 0.19
+  },
+  {
+    "name": "Espalda de cordero ligero",
+    "calories": 200.2,
+    "protein": 17.6,
+    "carbohydrates": 0,
+    "fat": 14.6,
+    "fiber": 0,
+    "salt": 0.19
+  },
+  {
+    "name": "Pierna de cordero ligero",
+    "calories": 183.7,
+    "protein": 19,
+    "carbohydrates": 0,
+    "fat": 12.1,
+    "fiber": 0,
+    "salt": 0.17
+  }
+]
