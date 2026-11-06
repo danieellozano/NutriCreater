@@ -4,7 +4,10 @@ import com.nutricreater.backend.dto.FoodRequest;
 import com.nutricreater.backend.exception.ResourceAlreadyExistsException;
 import com.nutricreater.backend.exception.ResourceNotFoundException;
 import com.nutricreater.backend.model.Food;
+import com.nutricreater.backend.model.Role;
+import com.nutricreater.backend.model.User;
 import com.nutricreater.backend.repository.FoodRepository;
+import com.nutricreater.backend.repository.UserRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
@@ -14,6 +17,7 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
+import java.util.HashSet;
 import java.util.List;
 import java.util.Optional;
 
@@ -27,19 +31,27 @@ class FoodServiceTest {
     @Mock
     private FoodRepository foodRepository;
 
+    @Mock
+    private UserRepository userRepository;
+
     @InjectMocks
     private FoodService foodService;
 
     private Food sampleFood;
     private FoodRequest sampleRequest;
+    private User testUser;
+    private final String userEmail = "daniel@gmail.com";
 
     @BeforeEach
     void setUp() {
-        // Objeto reutilizable para los tests
         sampleFood = new Food("Pechuga de pollo", 165.0, 31.0, 0.0, 3.6, 0.0, 0.0);
         sampleFood.setId(1L);
 
         sampleRequest = new FoodRequest("Pechuga de pollo", 165.0, 31.0, 0.0, 3.6, 0.0, 0.0);
+
+        testUser = new User("daniellozano", userEmail, "password123", Role.ROLE_USER);
+        testUser.setId(1L);
+        testUser.setFoods(new HashSet<>());
     }
 
     // ==========================================
@@ -50,16 +62,16 @@ class FoodServiceTest {
     class ReadTests {
 
         @Test
-        @DisplayName("Debe devolver la lista completa de alimentos")
+        @DisplayName("Debe devolver la lista de alimentos de la despensa del usuario")
         void getAllFoods_ShouldReturnList() {
-            when(foodRepository.findAll()).thenReturn(List.of(sampleFood));
+            when(foodRepository.findByUserEmail(userEmail)).thenReturn(List.of(sampleFood));
 
-            List<Food> result = foodService.getAllFoods();
+            List<Food> result = foodService.getAllFoods(userEmail);
 
             assertNotNull(result);
             assertEquals(1, result.size());
             assertEquals("Pechuga de pollo", result.get(0).getName());
-            verify(foodRepository, times(1)).findAll();
+            verify(foodRepository, times(1)).findByUserEmail(userEmail);
         }
 
         @Test
@@ -89,16 +101,17 @@ class FoodServiceTest {
         }
 
         @Test
-        @DisplayName("Debe filtrar alimentos por nombre")
+        @DisplayName("Debe filtrar alimentos por nombre dentro de la despensa del usuario")
         void searchFoodsByName_ShouldReturnFilteredList() {
-            when(foodRepository.findByNameContainingIgnoreCase("pechuga")).thenReturn(List.of(sampleFood));
+            when(foodRepository.findByUserEmailAndNameContaining(userEmail, "pechuga"))
+                    .thenReturn(List.of(sampleFood));
 
-            List<Food> result = foodService.searchFoodsByName("pechuga");
+            List<Food> result = foodService.searchFoodsByName("pechuga", userEmail);
 
             assertNotNull(result);
             assertEquals(1, result.size());
             assertEquals("Pechuga de pollo", result.get(0).getName());
-            verify(foodRepository, times(1)).findByNameContainingIgnoreCase("pechuga");
+            verify(foodRepository, times(1)).findByUserEmailAndNameContaining(userEmail, "pechuga");
         }
     }
 
@@ -110,32 +123,38 @@ class FoodServiceTest {
     class CreateTests {
 
         @Test
-        @DisplayName("Debe guardar y devolver el alimento si no existe previamente")
-        void createFood_WhenNotExists_ShouldSaveAndReturn() {
-            when(foodRepository.existsByNameIgnoreCase("Pechuga de pollo")).thenReturn(false);
+        @DisplayName("Debe guardar el alimento y añadirlo a la despensa del usuario")
+        void createFood_WhenNotExists_ShouldSaveAndAddToUser() {
+            when(userRepository.findByEmailIgnoreCaseOrNicknameIgnoreCase(userEmail, userEmail))
+                    .thenReturn(Optional.of(testUser));
             when(foodRepository.save(any(Food.class))).thenReturn(sampleFood);
+            when(userRepository.save(testUser)).thenReturn(testUser);
 
-            Food result = foodService.createFood(sampleRequest);
+            Food result = foodService.createFood(sampleRequest, userEmail);
 
             assertNotNull(result);
-            assertEquals(1L, result.getId());
             assertEquals("Pechuga de pollo", result.getName());
-            verify(foodRepository, times(1)).existsByNameIgnoreCase("Pechuga de pollo");
+            assertTrue(testUser.getFoods().contains(sampleFood));
+
             verify(foodRepository, times(1)).save(any(Food.class));
+            verify(userRepository, times(1)).save(testUser);
         }
 
         @Test
-        @DisplayName("Debe lanzar ResourceAlreadyExistsException si el nombre ya está registrado")
-        void createFood_WhenAlreadyExists_ShouldThrowException() {
-            when(foodRepository.existsByNameIgnoreCase("Pechuga de pollo")).thenReturn(true);
+        @DisplayName("Debe lanzar ResourceAlreadyExistsException si el usuario ya tiene ese alimento en su despensa")
+        void createFood_WhenAlreadyInPantry_ShouldThrowException() {
+            testUser.addFood(sampleFood); // Ya existe en la despensa del usuario
+
+            when(userRepository.findByEmailIgnoreCaseOrNicknameIgnoreCase(userEmail, userEmail))
+                    .thenReturn(Optional.of(testUser));
 
             ResourceAlreadyExistsException exception = assertThrows(ResourceAlreadyExistsException.class, () -> {
-                foodService.createFood(sampleRequest);
+                foodService.createFood(sampleRequest, userEmail);
             });
 
             assertTrue(exception.getMessage().contains("Pechuga de pollo"));
-            // Importante: aseguramos que NUNCA se llamó a guardar
             verify(foodRepository, never()).save(any(Food.class));
+            verify(userRepository, never()).save(testUser);
         }
     }
 
@@ -180,31 +199,39 @@ class FoodServiceTest {
     // 4. TESTS DE ELIMINACIÓN (DELETE)
     // ==========================================
     @Nested
-    @DisplayName("Eliminación de alimentos")
+    @DisplayName("Eliminación de alimentos de la despensa")
     class DeleteTests {
 
         @Test
-        @DisplayName("Debe eliminar el alimento si existe")
-        void deleteFood_WhenExists_ShouldDelete() {
+        @DisplayName("Debe eliminar el alimento de la despensa del usuario")
+        void deleteFood_WhenExists_ShouldRemoveFromUser() {
+            testUser.addFood(sampleFood);
+
+            when(userRepository.findByEmailIgnoreCaseOrNicknameIgnoreCase(userEmail, userEmail))
+                    .thenReturn(Optional.of(testUser));
             when(foodRepository.findById(1L)).thenReturn(Optional.of(sampleFood));
-            doNothing().when(foodRepository).delete(sampleFood);
+            when(userRepository.save(testUser)).thenReturn(testUser);
 
-            assertDoesNotThrow(() -> foodService.deleteFood(1L));
+            assertDoesNotThrow(() -> foodService.deleteFood(1L, userEmail));
 
-            verify(foodRepository, times(1)).findById(1L);
-            verify(foodRepository, times(1)).delete(sampleFood);
+            assertFalse(testUser.getFoods().contains(sampleFood));
+            verify(userRepository, times(1)).save(testUser);
+            // Aseguramos que NO se borra físicamente de la base de datos
+            verify(foodRepository, never()).delete(any(Food.class));
         }
 
         @Test
-        @DisplayName("Debe lanzar ResourceNotFoundException si se intenta borrar un ID inexistente")
-        void deleteFood_WhenNotFound_ShouldThrowException() {
+        @DisplayName("Debe lanzar ResourceNotFoundException si el alimento no existe")
+        void deleteFood_WhenFoodNotFound_ShouldThrowException() {
+            when(userRepository.findByEmailIgnoreCaseOrNicknameIgnoreCase(userEmail, userEmail))
+                    .thenReturn(Optional.of(testUser));
             when(foodRepository.findById(99L)).thenReturn(Optional.empty());
 
             assertThrows(ResourceNotFoundException.class, () -> {
-                foodService.deleteFood(99L);
+                foodService.deleteFood(99L, userEmail);
             });
 
-            verify(foodRepository, never()).delete(any(Food.class));
+            verify(userRepository, never()).save(testUser);
         }
     }
 }

@@ -7,6 +7,7 @@ import com.nutricreater.backend.exception.ResourceAlreadyExistsException;
 import com.nutricreater.backend.exception.ResourceNotFoundException;
 import com.nutricreater.backend.model.Role;
 import com.nutricreater.backend.model.User;
+import com.nutricreater.backend.repository.FoodRepository;
 import com.nutricreater.backend.repository.UserRepository;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
@@ -20,6 +21,7 @@ import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
+import java.util.List;
 import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -40,6 +42,8 @@ class AuthServiceTest {
 
     @Mock
     private AuthenticationManager authenticationManager;
+
+    @Mock private FoodRepository foodRepository;
 
     @InjectMocks
     private AuthService authService;
@@ -64,6 +68,7 @@ class AuthServiceTest {
             when(passwordEncoder.encode("password123")).thenReturn("encodedHash");
             when(userRepository.save(any(User.class))).thenReturn(savedUser);
             when(jwtService.generateToken(savedUser)).thenReturn("fake.jwt.token");
+            when(foodRepository.findAll()).thenReturn(List.of());
 
             // 2. Act
             AuthResponse response = authService.register(request);

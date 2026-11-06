@@ -5,13 +5,17 @@ import com.nutricreater.backend.dto.LoginRequest;
 import com.nutricreater.backend.dto.RegisterRequest;
 import com.nutricreater.backend.exception.ResourceAlreadyExistsException;
 import com.nutricreater.backend.exception.ResourceNotFoundException;
+import com.nutricreater.backend.model.Food;
 import com.nutricreater.backend.model.Role;
 import com.nutricreater.backend.model.User;
+import com.nutricreater.backend.repository.FoodRepository;
 import com.nutricreater.backend.repository.UserRepository;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public class AuthService {
@@ -20,15 +24,18 @@ public class AuthService {
     private final PasswordEncoder passwordEncoder;
     private final JwtService jwtService;
     private final AuthenticationManager authenticationManager;
+    private final FoodRepository foodRepository;
 
     public AuthService(UserRepository userRepository,
                        PasswordEncoder passwordEncoder,
                        JwtService jwtService,
-                       AuthenticationManager authenticationManager) {
+                       AuthenticationManager authenticationManager,
+                       FoodRepository foodRepository) {
         this.userRepository = userRepository;
         this.passwordEncoder = passwordEncoder;
         this.jwtService = jwtService;
         this.authenticationManager = authenticationManager;
+        this.foodRepository = foodRepository;
     }
 
     // REGISTRO
@@ -48,6 +55,9 @@ public class AuthService {
                 passwordEncoder.encode(request.password()),
                 Role.ROLE_USER
         );
+
+        List<Food> defaultFoods = foodRepository.findAll();
+        user.getFoods().addAll(defaultFoods);
 
         User savedUser = userRepository.save(user);
         String token = jwtService.generateToken(savedUser);

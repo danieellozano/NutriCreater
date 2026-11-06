@@ -7,6 +7,7 @@ import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
+import java.security.Principal;
 import java.util.List;
 
 @RestController
@@ -20,11 +21,11 @@ public class FoodController {
     }
 
     @GetMapping
-    public List<Food> getFoods(@RequestParam(required = false) String search) {
+    public List<Food> getFoods(@RequestParam(required = false) String search, Principal principal) {
         if (search != null && !search.isBlank()) {
-            return service.searchFoodsByName(search);
+            return service.searchFoodsByName(search, principal.getName());
         }
-        return service.getAllFoods();
+        return service.getAllFoods(principal.getName());
     }
 
     @GetMapping("/{id}")
@@ -34,8 +35,8 @@ public class FoodController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public Food createFood(@Valid @RequestBody FoodRequest request) {
-        return service.createFood(request);
+    public Food createFood(@Valid @RequestBody FoodRequest request, Principal principal) {
+        return service.createFood(request, principal.getName());
     }
 
     @PutMapping("/{id}")
@@ -45,7 +46,7 @@ public class FoodController {
 
     @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void deleteFood(@PathVariable Long id) {
-        service.deleteFood(id);
+    public void deleteFood(@PathVariable Long id, Principal principal) {
+        service.deleteFood(id, principal.getName());
     }
 }

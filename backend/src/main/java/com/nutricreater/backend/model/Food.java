@@ -2,6 +2,8 @@ package com.nutricreater.backend.model;
 
 import jakarta.persistence.*;
 
+import java.util.Objects;
+
 
 @Entity
 @Table(name = "foods")
@@ -11,7 +13,12 @@ public class Food {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false, unique = true)
+    @Override
+    public int hashCode() {
+        return Objects.hashCode(getId());
+    }
+
+    @Column(nullable = false)
     private String name;
 
     private Double calories;
@@ -95,5 +102,11 @@ public class Food {
 
     public void setSalt(Double salt) {
         this.salt = salt;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (!(o instanceof Food food)) return false;
+        return Objects.equals(getId(), food.getId());
     }
 }

@@ -1,26 +1,34 @@
+
 package com.nutricreater.backend.service;
 
 import com.nutricreater.backend.dto.FoodRequest;
 import com.nutricreater.backend.exception.ResourceAlreadyExistsException;
 import com.nutricreater.backend.exception.ResourceNotFoundException;
 import com.nutricreater.backend.model.Food;
+import com.nutricreater.backend.model.User;
 import com.nutricreater.backend.repository.FoodRepository;
+import com.nutricreater.backend.repository.UserRepository;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class FoodService {
 
     private  final FoodRepository  repository;
+    private final UserRepository userRepository;
 
-    public FoodService (FoodRepository repository) {
+    public FoodService (FoodRepository repository, UserRepository userRepository) {
         this.repository = repository;
+        this.userRepository = userRepository;
     }
 
     // Devolver la lista completa de Foods.
-    public List<Food> getAllFoods(){
-        return repository.findAll();
+    public List<Food> getAllFoods(String userEmail){
+
+        return repository.findByUserEmail(userEmail);
     }
 
     public Food getFoodById(Long id){
@@ -28,15 +36,23 @@ public class FoodService {
                         .orElseThrow(() -> new ResourceNotFoundException("Food no encontrada con ID: " + id));
     }
 
-    public List<Food> searchFoodsByName(String name){
-        return repository.findByNameContainingIgnoreCase(name);
+    public List<Food> searchFoodsByName(String name, String userEmail){
+        return repository.findByUserEmailAndNameContaining(userEmail,name);
     }
 
-    public Food createFood(FoodRequest request){
-        if (repository.existsByNameIgnoreCase(request.name())) {
-            throw new ResourceAlreadyExistsException("Ya existe un alimento con el nombre: " + request.name());
+    @Transactional
+    public Food createFood(FoodRequest request, String userEmail){
+        User user = userRepository.findByEmailIgnoreCaseOrNicknameIgnoreCase(userEmail, userEmail)
+                .orElseThrow(() -> new ResourceNotFoundException("Usuario no encontrado: " + userEmail));
+
+        boolean yaExisteEnMiDespensa = user.getFoods().stream()
+                .anyMatch(f -> f.getName().equalsIgnoreCase(request.name()));
+
+        if (yaExisteEnMiDespensa) {
+            throw new ResourceAlreadyExistsException("Ya tienes un alimento con este nombre en tu despensa: " + request.name());
         }
-        return repository.save(new Food(
+
+        Food created = this.repository.save(new Food(
                 request.name(),
                 request.calories(),
                 request.protein(),
@@ -45,6 +61,11 @@ public class FoodService {
                 request.fiber() != null ? request.fiber() : 0.0,
                 request.salt() != null ? request.salt() : 0.0
         ));
+
+        user.addFood(created);
+        userRepository.save(user);
+
+        return created;
     }
 
     public Food updateFood(Long id, FoodRequest request){
@@ -59,9 +80,15 @@ public class FoodService {
         return repository.save(toUpdate);
     }
 
-    public void deleteFood(Long id){
+    @Transactional
+    public void deleteFood(Long id, String userEmail){
+        User user = userRepository.findByEmailIgnoreCaseOrNicknameIgnoreCase(userEmail, userEmail)
+                .orElseThrow(() -> new ResourceNotFoundException("Usuario no encontrado: " + userEmail));
+
         Food toDelete = getFoodById(id);
-        repository.delete(toDelete);
+
+        user.getFoods().remove(toDelete);
+        userRepository.save(user);
     }
 
 
