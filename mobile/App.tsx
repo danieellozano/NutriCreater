@@ -10,16 +10,16 @@ import {
   StatusBar,
   Alert,
   ActivityIndicator,
+  TextInput, // <-- Importado para poder escribir el nombre de la comida
 } from 'react-native';
 
 // Tipos
-import { Food, MealResponse } from './src/types';
+import { Food, MealResponse, StoredUser } from './src/types';
 
 // Servicios
 import { foodService } from './src/services/foodService';
 import { mealService } from './src/services/mealService';
 import { tokenStorage } from './src/services/tokenStorage';
-import { StoredUser } from './src/types';
 
 // Componentes
 import { SearchBar } from './src/components/SearchBar';
@@ -28,6 +28,7 @@ import { AddGramsModal } from './src/components/AddGramsModal';
 import { MealSummaryCard } from './src/components/MealSummaryCard';
 import { MealCard } from './src/components/MealCard';
 import { AuthScreen } from './src/components/AuthScreen';
+import { CreateFoodModal } from './src/components/CreateFoodModal';
 
 interface PlateItem {
   foodId: number;
@@ -50,6 +51,7 @@ export default function App() {
 
   // Datos del Plato actual
   const [plate, setPlate] = useState<PlateItem[]>([]);
+  const [mealName, setMealName] = useState(''); // <-- Estado para el nombre personalizado de la comida
   const [selectedFoodForModal, setSelectedFoodForModal] = useState<Food | null>(null);
   const [modalVisible, setModalVisible] = useState(false);
   const [lastCalculatedMeal, setLastCalculatedMeal] = useState<MealResponse | null>(null);
@@ -57,6 +59,9 @@ export default function App() {
   // Datos de Comidas Guardadas
   const [savedMeals, setSavedMeals] = useState<MealResponse[]>([]);
   const [loadingMeals, setLoadingMeals] = useState(false);
+
+  // Modal para crear alimento propio
+  const [createFoodModalVisible, setCreateFoodModalVisible] = useState(false);
 
   // 1. Verificar sesión previa al arrancar
   useEffect(() => {
@@ -110,7 +115,6 @@ export default function App() {
     }
   };
 
-  // Cada vez que el usuario cambia a la pestaña "Mis Comidas", recarga la lista
   const handleTabChange = (tab: 'calculator' | 'myMeals') => {
     setActiveTab(tab);
     if (tab === 'myMeals') {
@@ -124,6 +128,7 @@ export default function App() {
     setCurrentUser(null);
     setFoods([]);
     setPlate([]);
+    setMealName('');
     setSavedMeals([]);
     setLastCalculatedMeal(null);
     setActiveTab('calculator');
@@ -152,9 +157,12 @@ export default function App() {
   const handleCalculateMeal = async () => {
     if (plate.length === 0) return;
 
+    // Asignamos el nombre escrito o uno por defecto si se dejó vacío
+    const finalName = mealName.trim() || `Plato de ${currentUser?.nickname || 'Usuario'} #${savedMeals.length + 1}`;
+
     try {
       const response = await mealService.create({
-        name: `Plato de ${currentUser?.nickname || 'Usuario'} #${savedMeals.length + 1}`,
+        name: finalName,
         items: plate.map(item => ({
           foodId: item.foodId,
           quantityInGrams: item.quantityInGrams,
@@ -163,21 +171,38 @@ export default function App() {
 
       setLastCalculatedMeal(response);
       setPlate([]);
-      Alert.alert('¡Éxito!', 'Comida calculada y registrada en tu cuenta.');
+      setMealName(''); // <-- Limpiamos el nombre tras guardar
+      Alert.alert('¡Éxito!', `Comida "${finalName}" guardada en tu historial.`);
     } catch (error) {
       Alert.alert('Error', 'No se pudo calcular ni guardar la comida.');
     }
   };
 
   // Borrar Comida
-  const handleDeleteMeal = async (id: number) => {
-    try {
-      await mealService.delete(id);
-      setSavedMeals(prev => prev.filter(m => m.id !== id));
-      Alert.alert('Eliminado', 'Comida eliminada con éxito.');
-    } catch (error) {
-      Alert.alert('Error', 'No se pudo eliminar la comida.');
-    }
+// Borrar Comida con Doble Confirmación
+  const handleDeleteMeal = (id: number) => {
+    Alert.alert(
+      'Eliminar plato',
+      '¿Estás seguro de que quieres eliminar este plato?',
+      [
+        {
+          text: 'Cancelar',
+          style: 'cancel', // Cierra la alerta sin hacer nada
+        },
+        {
+          text: 'Eliminar',
+          style: 'destructive', // En iOS lo pinta en rojo
+          onPress: async () => {
+            try {
+              await mealService.delete(id);
+              setSavedMeals(prev => prev.filter(m => m.id !== id));
+            } catch (error) {
+              Alert.alert('Error', 'No se pudo eliminar la comida.');
+            }
+          },
+        },
+      ]
+    );
   };
 
   if (checkingAuth) {
@@ -207,7 +232,7 @@ export default function App() {
           </TouchableOpacity>
         </View>
 
-        {/* Barra de Pestañas (Selector) */}
+        {/* Barra de Pestañas */}
         <View style={styles.tabsContainer}>
           <TouchableOpacity
             style={[styles.tabButton, activeTab === 'calculator' && styles.tabButtonActive]}
@@ -238,6 +263,7 @@ export default function App() {
             {plate.length > 0 && (
               <View style={styles.plateContainer}>
                 <Text style={styles.plateTitle}>🍽️ Plato actual ({plate.length} ingredientes):</Text>
+                
                 <ScrollView horizontal showsHorizontalScrollIndicator={false} style={styles.chipsScroll}>
                   {plate.map((item, index) => (
                     <View key={index} style={styles.chip}>
@@ -247,11 +273,32 @@ export default function App() {
                     </View>
                   ))}
                 </ScrollView>
+
+                {/* 👇 Campo para escribir el nombre de la comida */}
+                <TextInput
+                  style={styles.mealNameInput}
+                  placeholder="Nombre de la comida (ej: Desayuno fitness)..."
+                  placeholderTextColor="#718096"
+                  value={mealName}
+                  onChangeText={setMealName}
+                />
+
                 <TouchableOpacity style={styles.calculateBtn} onPress={handleCalculateMeal}>
                   <Text style={styles.calculateBtnText}>🔥 Calcular y Guardar Comida</Text>
                 </TouchableOpacity>
               </View>
             )}
+
+            {/* Cabecera con botón de crear alimento */}
+            <View style={styles.foodHeaderRow}>
+              <Text style={styles.sectionSubtitle}>Catálogo de tu Despensa</Text>
+              <TouchableOpacity
+                style={styles.addCustomFoodBtn}
+                onPress={() => setCreateFoodModalVisible(true)}
+              >
+                <Text style={styles.addCustomFoodBtnText}>+ Nuevo Alimento</Text>
+              </TouchableOpacity>
+            </View>
 
             <SearchBar
               value={search}
@@ -269,7 +316,9 @@ export default function App() {
                 data={foods}
                 keyExtractor={item => item.id.toString()}
                 contentContainerStyle={{ paddingBottom: 30 }}
-                renderItem={({ item }) => <FoodCard food={item} onPress={() => handleSelectFood(item)} />}
+                renderItem={({ item }) => (
+                  <FoodCard food={item} onPress={() => handleSelectFood(item)} />
+                )}
                 ListEmptyComponent={
                   <Text style={styles.emptyText}>No hay alimentos en tu despensa.</Text>
                 }
@@ -313,6 +362,15 @@ export default function App() {
           food={selectedFoodForModal}
           onClose={() => setModalVisible(false)}
           onConfirm={handleAddGrams}
+        />
+
+        {/* Modal para crear nuevo alimento propio */}
+        <CreateFoodModal
+          visible={createFoodModalVisible}
+          onClose={() => setCreateFoodModalVisible(false)}
+          onFoodCreated={newFood => {
+            setFoods(prev => [newFood, ...prev]);
+          }}
         />
       </View>
     </SafeAreaView>
@@ -361,12 +419,50 @@ const styles = StyleSheet.create({
     fontWeight: '700',
   },
 
+  // Fila del botón + Nuevo Alimento
+  foodHeaderRow: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    marginBottom: 8,
+    marginTop: 4,
+  },
+  sectionSubtitle: {
+    fontSize: 14,
+    fontWeight: '600',
+    color: '#4B5563',
+  },
+  addCustomFoodBtn: {
+    backgroundColor: '#E8F5E9',
+    paddingHorizontal: 12,
+    paddingVertical: 6,
+    borderRadius: 8,
+    borderWidth: 1,
+    borderColor: '#C8E6C9',
+  },
+  addCustomFoodBtnText: {
+    color: '#2E7D32',
+    fontSize: 13,
+    fontWeight: '700',
+  },
+
   // Plato
   plateContainer: { backgroundColor: '#e8f5e9', borderRadius: 12, padding: 12, marginBottom: 14, borderWidth: 1, borderColor: '#c8e6c9' },
   plateTitle: { fontSize: 14, fontWeight: 'bold', color: '#2e7d32' },
   chipsScroll: { marginVertical: 8 },
   chip: { backgroundColor: '#ffffff', paddingHorizontal: 10, paddingVertical: 5, borderRadius: 20, marginRight: 8, borderWidth: 1, borderColor: '#a5d6a7' },
   chipText: { fontSize: 13, color: '#1b5e20', fontWeight: '500' },
+  mealNameInput: {
+    backgroundColor: '#FFFFFF',
+    borderWidth: 1,
+    borderColor: '#A5D6A7',
+    borderRadius: 8,
+    paddingHorizontal: 12,
+    paddingVertical: 8,
+    fontSize: 14,
+    color: '#1F2937',
+    marginBottom: 10,
+  },
   calculateBtn: { backgroundColor: '#2e7d32', borderRadius: 8, paddingVertical: 10, alignItems: 'center' },
   calculateBtnText: { color: '#ffffff', fontWeight: 'bold', fontSize: 14 },
   emptyText: { textAlign: 'center', color: '#868e96', marginTop: 40, fontSize: 15 },
