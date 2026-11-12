@@ -1,5 +1,6 @@
 package com.nutricreater.backend.dto;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotEmpty;
@@ -11,5 +12,8 @@ public record MealRequest(
 
         @NotEmpty(message = "La comida debe contener al menos un alimento")
         @Valid // Para que valide cada MealItemRequest dentro de la lista
-        List<MealItemRequest> items
+        List<MealItemRequest> items,
+
+        @JsonProperty("isPublic")
+        Boolean isPublic
 ) {}

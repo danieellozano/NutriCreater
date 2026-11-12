@@ -69,5 +69,43 @@ export const mealService = {
         if (!response.ok) {
             throw new Error(`Error deleting meal: ${response.status}`);
         }
+    },
+
+    async getCommunity(search?: string, sort: 'recent' | 'top' = 'recent'): Promise<MealResponse[]> {
+        const params = new URLSearchParams();
+        if (search && search.trim()) params.append('search', search.trim());
+        params.append('sort', sort);
+
+        const headers = await getAuthHeaders();
+        const response = await fetch(`${BASE_URL}/community?${params.toString()}`, { headers });
+        if (!response.ok) {
+            throw new Error(`Error fetching community meals: ${response.status}`);
+        }
+        return response.json();
+    },
+
+    async toggleLike(id: number): Promise<MealResponse> {
+        const headers = await getAuthHeaders();
+        const response = await fetch(`${BASE_URL}/${id}/like`, {
+            method: 'POST',
+            headers,
+        });
+        if (!response.ok) {
+            throw new Error(`Error toggling like: ${response.status}`);
+        }
+        return response.json();
+    },
+
+    async cloneMeal(id: number, customName?: string): Promise<MealResponse> {
+        const headers = await getAuthHeaders();
+        const query = customName ? `?customName=${encodeURIComponent(customName)}` : '';
+        const response = await fetch(`${BASE_URL}/${id}/clone${query}`, {
+            method: 'POST',
+            headers,
+        });
+        if (!response.ok) {
+            throw new Error(`Error cloning meal: ${response.status}`);
+        }
+        return response.json();
     }
 };

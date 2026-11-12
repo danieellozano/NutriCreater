@@ -1,5 +1,9 @@
 package com.nutricreater.backend.dto;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
 
 public record MealResponse(
@@ -11,5 +15,10 @@ public record MealResponse(
         Double totalCarbohydrates,
         Double totalFat,
         Double totalFiber,
-        Double totalSalt
+        Double totalSalt,
+        @JsonProperty("isPublic")
+        boolean isPublic,
+        String authorNickname,
+        int likesCount,
+        LocalDateTime createdAt
 ) {}

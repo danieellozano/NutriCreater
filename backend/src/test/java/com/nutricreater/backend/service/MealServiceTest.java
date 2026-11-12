@@ -36,7 +36,7 @@ public class MealServiceTest {
     private FoodService foodService;
 
     @Mock
-    private UserRepository userRepository; // 1. Mock de UserRepository necesario
+    private UserRepository userRepository;
 
     @InjectMocks
     private MealService mealService;
@@ -54,7 +54,7 @@ public class MealServiceTest {
         leche = new Food("Leche", 65.0, 3.2, 4.8, 3.6, 0.0, 0.1);
         leche.setId(2L);
 
-        testUser = new User("daniellozano", userEmail, "encodedPassword", Role.ROLE_USER);
+        testUser = new User("user", userEmail, "encodedPassword", Role.ROLE_USER);
         testUser.setId(1L);
     }
 
@@ -68,35 +68,30 @@ public class MealServiceTest {
         @Test
         @DisplayName("Debe calcular los macros totales con precisión matemática vinculando al usuario")
         void createMeal_ShouldCalculateMacrosCorrectly() {
-            // 1. Arrange: 100g de avena y 200g de leche
             MealItemRequest item1 = new MealItemRequest(1L, 100.0);
             MealItemRequest item2 = new MealItemRequest(2L, 200.0);
-            MealRequest request = new MealRequest("Desayuno Fitness", List.of(item1, item2));
+            MealRequest request = new MealRequest("Desayuno Fitness", List.of(item1, item2), false);
 
             when(userRepository.findByEmailIgnoreCaseOrNicknameIgnoreCase(userEmail, userEmail))
                     .thenReturn(Optional.of(testUser));
             when(foodService.getFoodById(1L)).thenReturn(avena);
             when(foodService.getFoodById(2L)).thenReturn(leche);
 
-            // Simulación de que al guardar la comida, se le asigna el ID 10
             when(mealRepository.save(any(Meal.class))).thenAnswer(invocation -> {
                 Meal mealToSave = invocation.getArgument(0);
                 mealToSave.setId(10L);
                 return mealToSave;
             });
 
-            // 2. Act (Pasamos el userEmail)
             MealResponse response = mealService.createMeal(request, userEmail);
 
-            // 3. Assert: Comprobamos las matemáticas exactas
-            // Calorías: (1.0 * 370) + (2.0 * 65) = 500.0
-            // Proteínas: (1.0 * 13) + (2.0 * 3.2) = 19.4
             assertNotNull(response);
             assertEquals(10L, response.id());
             assertEquals("Desayuno Fitness", response.name());
             assertEquals(2, response.items().size());
             assertEquals(500.0, response.totalCalories());
             assertEquals(19.4, response.totalProtein(), 0.001);
+            assertEquals(0, response.likesCount());
 
             verify(userRepository, times(1)).findByEmailIgnoreCaseOrNicknameIgnoreCase(userEmail, userEmail);
             verify(foodService, times(1)).getFoodById(1L);
@@ -153,14 +148,12 @@ public class MealServiceTest {
         @Test
         @DisplayName("Debe recalcular los macros tras actualizar ingredientes")
         void updateMeal_ShouldRecalculateTotals() {
-            // Comida original con 100g de avena (370 kcal)
             Meal existingMeal = new Meal("Desayuno Antiguo");
             existingMeal.setId(1L);
             existingMeal.setUser(testUser);
             existingMeal.addItem(avena, 100.0);
 
-            // Petición para actualizar a 200g de leche (130 kcal)
-            MealRequest updateRequest = new MealRequest("Desayuno Nuevo", List.of(new MealItemRequest(2L, 200.0)));
+            MealRequest updateRequest = new MealRequest("Desayuno Nuevo", List.of(new MealItemRequest(2L, 200.0)), false);
 
             when(mealRepository.findByIdAndUserEmail(1L, userEmail)).thenReturn(Optional.of(existingMeal));
             when(foodService.getFoodById(2L)).thenReturn(leche);
@@ -171,7 +164,7 @@ public class MealServiceTest {
             assertNotNull(response);
             assertEquals("Desayuno Nuevo", response.name());
             assertEquals(1, response.items().size());
-            assertEquals(130.0, response.totalCalories()); // (2.0 * 65)
+            assertEquals(130.0, response.totalCalories());
             verify(mealRepository, times(1)).save(existingMeal);
         }
     }
@@ -196,6 +189,136 @@ public class MealServiceTest {
             assertDoesNotThrow(() -> mealService.deleteMeal(1L, userEmail));
 
             verify(mealRepository, times(1)).delete(meal);
+        }
+    }
+
+    // ==========================================
+    // 5. COMUNIDAD, CLONADO Y LIKES
+    // ==========================================
+    @Nested
+    @DisplayName("Comunidad, Clonado y Likes")
+    class CommunityAndCloneTests {
+
+        @Test
+        @DisplayName("Debe devolver comidas públicas ordenadas por más recientes")
+        void getCommunityMeals_WhenSortRecent_ShouldReturnRecentPublicMeals() {
+            Meal publicMeal = new Meal("Bowl Público");
+            publicMeal.setId(1L);
+            publicMeal.setUser(testUser);
+            publicMeal.setPublic(true);
+
+            when(mealRepository.findByIsPublicTrueOrderByCreatedAtDesc()).thenReturn(List.of(publicMeal));
+
+            List<MealResponse> result = mealService.getCommunityMeals(null, "recent");
+
+            assertNotNull(result);
+            assertEquals(1, result.size());
+            assertTrue(result.get(0).isPublic());
+            assertEquals("user", result.get(0).authorNickname());
+            verify(mealRepository, times(1)).findByIsPublicTrueOrderByCreatedAtDesc();
+        }
+
+        @Test
+        @DisplayName("Debe devolver comidas públicas ordenadas por más valoradas (top)")
+        void getCommunityMeals_WhenSortTop_ShouldReturnTopRatedPublicMeals() {
+            Meal publicMeal = new Meal("Bowl Popular");
+            publicMeal.setId(1L);
+            publicMeal.setUser(testUser);
+            publicMeal.setPublic(true);
+
+            when(mealRepository.findTopRatedPublicMeals()).thenReturn(List.of(publicMeal));
+
+            List<MealResponse> result = mealService.getCommunityMeals(null, "top");
+
+            assertNotNull(result);
+            assertEquals(1, result.size());
+            verify(mealRepository, times(1)).findTopRatedPublicMeals();
+        }
+
+        @Test
+        @DisplayName("Debe alternar Like (dar like y luego quitar like)")
+        void toggleLike_ShouldAddAndRemoveLike() {
+            Meal publicMeal = new Meal("Comida Para Votar");
+            publicMeal.setId(10L);
+            publicMeal.setPublic(true);
+
+            when(mealRepository.findById(10L)).thenReturn(Optional.of(publicMeal));
+            when(userRepository.findByEmailIgnoreCaseOrNicknameIgnoreCase(userEmail, userEmail))
+                    .thenReturn(Optional.of(testUser));
+            when(mealRepository.save(any(Meal.class))).thenAnswer(invocation -> invocation.getArgument(0));
+
+            // 1. Dar Like
+            MealResponse responseWithLike = mealService.toggleLike(10L, userEmail);
+            assertEquals(1, responseWithLike.likesCount());
+            assertTrue(publicMeal.getLikedByUsers().contains(testUser));
+
+            // 2. Quitar Like (Unlike)
+            MealResponse responseWithoutLike = mealService.toggleLike(10L, userEmail);
+            assertEquals(0, responseWithoutLike.likesCount());
+            assertFalse(publicMeal.getLikedByUsers().contains(testUser));
+        }
+
+        @Test
+        @DisplayName("Debe lanzar excepción al intentar dar like a una comida privada")
+        void toggleLike_WhenPrivate_ShouldThrowException() {
+            Meal privateMeal = new Meal("Comida Privada");
+            privateMeal.setId(15L);
+            privateMeal.setPublic(false);
+
+            when(mealRepository.findById(15L)).thenReturn(Optional.of(privateMeal));
+
+            assertThrows(ResourceNotFoundException.class, () -> {
+                mealService.toggleLike(15L, userEmail);
+            });
+
+            verify(mealRepository, never()).save(any());
+        }
+
+        @Test
+        @DisplayName("Debe clonar una comida pública y añadir a la despensa los ingredientes que falten")
+        void cloneMeal_WhenPublic_ShouldCloneAndPropagateMissingFoodsToPantry() {
+            User author = new User("carlos", "carlos@gmail.com", "pass", Role.ROLE_USER);
+            Meal originalMeal = new Meal("Desayuno de Carlos");
+            originalMeal.setId(50L);
+            originalMeal.setUser(author);
+            originalMeal.setPublic(true);
+            originalMeal.addItem(avena, 100.0);
+
+            testUser.getFoods().clear(); // El usuario que clona no tiene avena
+
+            when(mealRepository.findById(50L)).thenReturn(Optional.of(originalMeal));
+            when(userRepository.findByEmailIgnoreCaseOrNicknameIgnoreCase(userEmail, userEmail))
+                    .thenReturn(Optional.of(testUser));
+            when(mealRepository.save(any(Meal.class))).thenAnswer(invocation -> invocation.getArgument(0));
+
+            MealResponse clonedResponse = mealService.cloneMeal(50L,null,  userEmail);
+
+            assertNotNull(clonedResponse);
+            assertEquals("Desayuno de Carlos", clonedResponse.name());
+            assertFalse(clonedResponse.isPublic());
+
+            assertTrue(testUser.getFoods().contains(avena));
+            verify(userRepository, times(1)).save(testUser);
+            verify(mealRepository, times(1)).save(any(Meal.class));
+        }
+
+        @Test
+        @DisplayName("Debe lanzar excepción si se intenta clonar una comida privada de otro usuario")
+        void cloneMeal_WhenPrivateAndNotOwner_ShouldThrowException() {
+            User author = new User("carlos", "carlos@gmail.com", "pass", Role.ROLE_USER);
+            Meal privateMeal = new Meal("Comida Secreta");
+            privateMeal.setId(60L);
+            privateMeal.setUser(author);
+            privateMeal.setPublic(false);
+
+            when(mealRepository.findById(60L)).thenReturn(Optional.of(privateMeal));
+
+            assertThrows(ResourceNotFoundException.class, () -> {
+                mealService.cloneMeal(60L,null,  userEmail);
+            });
+
+            verify(userRepository, never()).save(any());
+            verify(mealRepository, never()).save(any());
         }
     }
 }

@@ -7,6 +7,7 @@ export interface MealItemRequest {
 export interface MealRequest {
   name: string;
   items: MealItemRequest[];
+  isPublic?: boolean;
 }
 
 // Lo que nos devuelve el backend con los cálculos:
@@ -33,4 +34,8 @@ export interface MealResponse {
   totalFat: number;
   totalFiber?: number;
   totalSalt?: number;
+  isPublic: boolean;
+  authorNickname: string;
+  likesCount: number;
+  createdAt?: string;
 }
