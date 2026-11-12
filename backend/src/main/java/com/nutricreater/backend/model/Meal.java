@@ -3,8 +3,11 @@ package com.nutricreater.backend.model;
 
 import jakarta.persistence.*;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table(name = "meals")
@@ -24,12 +27,28 @@ public class Meal {
     @OneToMany(mappedBy = "meal", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<MealItem> items = new ArrayList<>();
 
+    @Column(nullable = false)
+    private boolean isPublic = false;
+
+    @Column(nullable = false, updatable = false)
+    private LocalDateTime createdAt = LocalDateTime.now();
+
+    @ManyToMany(fetch = FetchType.LAZY)
+    @JoinTable(
+            name = "meal_likes",
+            joinColumns = @JoinColumn(name = "meal_id"),
+            inverseJoinColumns = @JoinColumn(name = "user_id")
+    )
+    private Set<User> likedByUsers = new HashSet<>();
+
+
     public Meal() {
     }
 
     public Meal(String name) {
         this.name = name;
     }
+
 
     // Método de conveniencia para añadir items manteniendo la relación bidireccional
     public void addItem(Food food, Double quantityInGrams){
@@ -63,5 +82,23 @@ public class Meal {
 
     public void setItems(List<MealItem> items) {
         this.items = items;
+    }
+
+    public boolean isPublic() {return isPublic;}
+
+    public void setPublic(boolean aPublic){
+        this.isPublic = aPublic;
+    }
+
+    public int getLikesCount() {
+        return likedByUsers.size();
+    }
+
+    public Set<User> getLikedByUsers(){
+        return likedByUsers;
+    }
+
+    public LocalDateTime getCreatedAt() {
+        return createdAt;
     }
 }

@@ -46,4 +46,28 @@ public class MealController {
         service.deleteMeal(id, principal.getName());
     }
 
+    @GetMapping("/community")
+    public List<MealResponse> findMealsCommunity(
+            @RequestParam(required = false) String search,
+            @RequestParam(required = false, defaultValue = "recent") String sort
+    ) {
+        return service.getCommunityMeals(search, sort);
+    }
+
+    @PostMapping("/{id}/clone")
+    @ResponseStatus(HttpStatus.CREATED)
+    public MealResponse cloneMeal(@PathVariable Long id,
+                                  @RequestParam(required = false) String name,
+                                  Principal principal
+                                    ){
+        return service.cloneMeal(id, name, principal.getName());
+    }
+
+    @PostMapping("/{id}/like")
+    public MealResponse toggleLike(@PathVariable Long id, Principal principal) {
+        return service.toggleLike(id, principal.getName());
+    }
+
+
+
 }

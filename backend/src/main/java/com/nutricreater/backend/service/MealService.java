@@ -66,6 +66,7 @@ public class MealService {
         Meal meal = new Meal();
         meal.setName(request.name());
         meal.setUser(user);
+        meal.setPublic(Boolean.TRUE.equals(request.isPublic()));
 
         for (MealItemRequest itemRequest : request.items()) {
             Food food = foodService.getFoodById(itemRequest.foodId());
@@ -81,6 +82,9 @@ public class MealService {
     public MealResponse updateMeal(Long id, MealRequest request, String userEmail) {
         Meal toUpdate = findUserMealEntity(id, userEmail);
         toUpdate.setName(request.name());
+        if (request.isPublic() != null) {
+            toUpdate.setPublic(request.isPublic());
+        }
         toUpdate.getItems().clear();
 
         for (MealItemRequest item : request.items()) {
@@ -151,7 +155,102 @@ public class MealService {
                 totalCarbs,
                 totalFat,
                 totalFiber,
-                totalSalt
+                totalSalt,
+                meal.isPublic(),
+                meal.getUser() != null ? meal.getUser().getNickname() : "Comunidad",
+                meal.getLikesCount(),
+                meal.getCreatedAt()
         );
     }
+
+    public List<MealResponse> getCommunityMeals(String search, String sort) {
+        boolean isTop = "top".equalsIgnoreCase(sort);
+        boolean hasSearch = search != null && !search.isBlank();
+
+        List<Meal> meals;
+
+        if (isTop) {
+            meals = hasSearch
+                    ? mealRepository.findTopRatedPublicMealsByName(search)
+                    : mealRepository.findTopRatedPublicMeals();
+        } else {
+            meals = hasSearch
+                    ? mealRepository.findByIsPublicTrueAndNameContainingIgnoreCaseOrderByCreatedAtDesc(search)
+                    : mealRepository.findByIsPublicTrueOrderByCreatedAtDesc();
+        }
+
+        return meals.stream().map(this::mapToResponse).toList();
+
+
+    }
+
+    @Transactional
+    public MealResponse cloneMeal(Long mealId,String customName, String userEmail){
+        // Buscar la comida original
+        Meal originalMeal = mealRepository.findById(mealId)
+                .orElseThrow(() -> new ResourceNotFoundException("Comida no encontrada con ID: " + mealId));
+
+        // Validar que sea pública (o que sea del propio usuario)
+        if (!originalMeal.isPublic() && !originalMeal.getUser().getEmail().equalsIgnoreCase(userEmail)){
+            throw new ResourceNotFoundException("No tienes permiso para clonar esta comida");
+        }
+
+        // Buscar al usuario que clona
+        User currentUser = userRepository.findByEmailIgnoreCaseOrNicknameIgnoreCase(userEmail, userEmail)
+                .orElseThrow(() -> new ResourceNotFoundException("Usuario no encontrado"));
+
+        // Crear la copia de la comida
+        Meal clonedMeal = new Meal();
+
+        // Si el usuario escribió un nombre se usa, si no se deja el original.
+        String finalName = (customName != null && !customName.isBlank())
+                ? customName.trim()
+                : originalMeal.getName();
+
+        clonedMeal.setName(finalName);
+        clonedMeal.setUser(currentUser);
+        clonedMeal.setPublic(false);
+
+        // Prorpagar ingredientes.
+        for (MealItem item: originalMeal.getItems()){
+            Food food = item.getFood();
+
+            if(!currentUser.getFoods().contains(food)){
+                currentUser.addFood(food);
+            }
+
+            clonedMeal.addItem(food, item.getQuantityInGrams());
+        }
+
+        userRepository.save(currentUser);
+        Meal saved = mealRepository.save(clonedMeal);
+        return  mapToResponse(saved);
+
+    }
+
+    @Transactional
+    public MealResponse toggleLike(Long mealId, String userEmail){
+        Meal meal = mealRepository.findById(mealId)
+                .orElseThrow(() -> new ResourceNotFoundException("Comida no encontrada con Id : " + mealId));
+
+        if(!meal.isPublic()){
+            throw new ResourceNotFoundException("No se puede dar like a una comida privada");
+        }
+
+        User user = userRepository.findByEmailIgnoreCaseOrNicknameIgnoreCase(userEmail, userEmail)
+                .orElseThrow(() -> new ResourceNotFoundException("Usuario no encontrado"));
+
+        // Si ya le dio like, lo quitamos (unlike). Si no lo añadimos (like)
+        if(meal.getLikedByUsers().contains(user)){
+            meal.getLikedByUsers().remove(user);
+        } else {
+            meal.getLikedByUsers().add(user);
+        }
+
+        Meal saved = mealRepository.save(meal);
+        return mapToResponse(saved);
+    }
+
+
+
 }
